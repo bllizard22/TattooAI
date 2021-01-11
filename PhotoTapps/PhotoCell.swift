@@ -9,5 +9,7 @@ import UIKit
 
 class PhotoCell: UICollectionViewCell {
     
+    var imageID: Int?
+    
     @IBOutlet weak var cellImageView: UIImageView!
 }

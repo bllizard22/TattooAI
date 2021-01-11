@@ -7,10 +7,22 @@
 
 import UIKit
 
+struct ImageItems {
+    var name: String
+    var liked: Bool
+}
+
+struct GlobalVariables {
+//    static var photos = ["dog0","dog1", "dog2", "dog3", "dog4", "dog5", "dog6", "dog7", "dog8", "dog9", "dog10", "dog11", "dog12", "dog13", "dog14", "dog15"]
+    static var photos: [Int: ImageItems] = [0: ImageItems(name: "dog0", liked: true),
+                                            1: ImageItems(name: "dog1", liked: false),
+                                            2: ImageItems(name: "dog2", liked: true),
+                                            3: ImageItems(name: "dog3", liked: false),
+                                            4: ImageItems(name: "dog4", liked: true)]
+}
+
 class PhotosCollectionViewController: UICollectionViewController {
 
-    let photos = ["dog0","dog1", "dog2", "dog3", "dog4", "dog5", "dog6", "dog7", "dog8", "dog9", "dog10", "dog11", "dog12", "dog13", "dog14", "dog15"]
-//    let photos = ["dog1", "dog2", "dog3"]
     let paddingWidth: CGFloat = 3
     let itemsPerRow: CGFloat = 3
     
@@ -43,6 +55,7 @@ class PhotosCollectionViewController: UICollectionViewController {
             let photoVC = segue.destination as! PhotoViewController
             let cell = sender as! PhotoCell
             photoVC.image = cell.cellImageView.image
+            photoVC.imageID = cell.imageID
         }
     }
 
@@ -57,7 +70,7 @@ class PhotosCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return photos.count
+        return GlobalVariables.photos.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -65,9 +78,11 @@ class PhotosCollectionViewController: UICollectionViewController {
         
 //        cell.backgroundColor = .systemGray5
         
-        let imageName = photos[indexPath.item]
+        let imageName = GlobalVariables.photos[indexPath.item]!.name
+//        print(imageName)
         let image = UIImage(named: imageName)
         cell.cellImageView.image = image
+        cell.imageID = indexPath.item
         
 //        collectionView.reloadData()
         
