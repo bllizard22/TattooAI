@@ -70,10 +70,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S3c-cH-o3s">
-                                <rect key="frame" x="0.0" y="292" width="414" height="224"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S3c-cH-o3s">
+                                <rect key="frame" x="0.0" y="264" width="414" height="280"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="224" id="hXr-a6-Qzs"/>
+                                    <constraint firstAttribute="height" constant="280" id="QhL-vP-Uds"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="67" translatesAutoresizingMaskIntoConstraints="NO" id="zb3-ew-uZM">
@@ -121,7 +121,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6r0-XX-KbF" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WP9-ig-iaK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="WP9-ig-iaK">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
