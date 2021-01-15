@@ -13,16 +13,18 @@ class LikedCollectionViewController: UICollectionViewController {
     let itemsPerRow: CGFloat = 3
     
     var likedPhotos: [ImageItems] = []
+//    var likedPhotos: [Int: ImageItems] = [:]
     
     override func viewWillAppear(_ animated: Bool) {
         likedPhotos = obtainLikedImages()
+//        likedPhotos = GlobalVariables.photos.filter{$0.value.liked == true}
         collectionView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        likedPhotos = obtainLikedImages()
+//        likedPhotos = obtainLikedImages()
         
         overrideUserInterfaceStyle = .dark
         
@@ -75,6 +77,9 @@ class LikedCollectionViewController: UICollectionViewController {
         cell.backgroundColor = .systemGray5
         
 //        let imageName = GlobalVariables.photos[indexPath.item].name
+//        print(likedPhotos[indexPath.item]!.name)
+//        print(likedPhotos)
+//        print(type(of: likedPhotos[indexPath.item]!))
         let imageName = likedPhotos[indexPath.item].name
         let image = UIImage(named: imageName)
         cell.cellImageView.image = image
