@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8531568525B5790700738F95 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8531568425B5790700738F95 /* ImageViewController.swift */; };
 		8579963825AC7D7A00C9EA93 /* SearchCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8579963725AC7D7A00C9EA93 /* SearchCollectionViewController.swift */; };
 		8579963B25AC7D8C00C9EA93 /* LikedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8579963A25AC7D8C00C9EA93 /* LikedCollectionViewController.swift */; };
 		857C590025AACCF6000803F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C58FF25AACCF6000803F2 /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8531568425B5790700738F95 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		8579963725AC7D7A00C9EA93 /* SearchCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewController.swift; sourceTree = "<group>"; };
 		8579963A25AC7D8C00C9EA93 /* LikedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedCollectionViewController.swift; sourceTree = "<group>"; };
 		857C58FC25AACCF6000803F2 /* PhotoTapps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoTapps.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +77,7 @@
 				857C590825AACCF7000803F2 /* Assets.xcassets */,
 				857C590A25AACCF7000803F2 /* LaunchScreen.storyboard */,
 				857C590D25AACCF7000803F2 /* Info.plist */,
+				8531568425B5790700738F95 /* ImageViewController.swift */,
 			);
 			path = PhotoTapps;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 				857C590025AACCF6000803F2 /* AppDelegate.swift in Sources */,
 				857C590225AACCF6000803F2 /* SceneDelegate.swift in Sources */,
 				8579963825AC7D7A00C9EA93 /* SearchCollectionViewController.swift in Sources */,
+				8531568525B5790700738F95 /* ImageViewController.swift in Sources */,
 				857C593525AAEB71000803F2 /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

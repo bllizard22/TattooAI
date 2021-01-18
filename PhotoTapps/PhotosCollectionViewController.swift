@@ -48,6 +48,7 @@ class PhotosCollectionViewController: UICollectionViewController {
         
         // Turn off scroll indicator
         collectionView.showsVerticalScrollIndicator = false
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
