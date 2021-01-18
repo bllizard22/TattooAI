@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 struct ImageItems {
     var name: String
@@ -25,6 +26,9 @@ class PhotosCollectionViewController: UICollectionViewController {
 
     let paddingWidth: CGFloat = 3
     let itemsPerRow: CGFloat = 3
+    
+    let storage = Storage.storage(url:"gs://firephotos-40d70.appspot.com")
+    var storageSize: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +52,22 @@ class PhotosCollectionViewController: UICollectionViewController {
         
         // Turn off scroll indicator
         collectionView.showsVerticalScrollIndicator = false
+        
+        // Firebase implement
+        let storageRef = storage.reference().child("images")
+        storageRef.listAll { [weak self] (result, error) in
+          if let error = error {
+            print("list Error\n", error)
+          }
+          for prefix in result.prefixes {
+            print(prefix)
+          }
+          for item in result.items {
+            print(item)
+          }
+            self?.storageSize = String(result.items.count)
+            print(self!.storageSize)
+        }
         
     }
     

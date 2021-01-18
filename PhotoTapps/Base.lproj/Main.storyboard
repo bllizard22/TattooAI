@@ -57,7 +57,6 @@
                         </connections>
                     </collectionView>
                     <tabBarItem key="tabBarItem" title="" image="star.fill" catalog="system" id="dgU-gs-OSY"/>
-                    <navigationItem key="navigationItem" title=" Gallery" id="FpZ-lY-vzr"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t1C-va-Nd1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -271,7 +270,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mgY-Az-1tm"/>
+        <segue reference="4cq-9R-SqS"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>
