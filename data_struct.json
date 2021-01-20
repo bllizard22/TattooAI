@@ -1,0 +1,42 @@
+{"users": {
+	"user1" : {
+		"id": String,
+		"email": String,
+		"tasks": {
+			"task1": String,
+			"task2": String,
+			"task3": String
+		}
+	},
+	"user2" : {
+		"id": String,
+		"email": String,
+		"tasks": {
+			"task1": String,
+			"task2": String,
+			"task3": String
+		}
+	},
+	"user3" : {
+		"id": String,
+		"email": String,
+		"tasks": {
+			"task1": String,
+			"task2": String,
+			"task3": String
+		}
+	}
+}}
+
+{
+	users: {
+    user1_uid: {
+        follower_count: 5,
+        following_count: 3,
+        post_count: 10,
+        username: "chase"
+    },
+    user2_uid: {...},
+    user3_uid: {...}
+}
+}

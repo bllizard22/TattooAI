@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+# platform :ios, '10.0'
 
 target 'PhotoTapps' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -14,5 +14,7 @@ target 'PhotoTapps' do
 	pod 'Firebase/Storage'
 	# add pods for any other desired Firebase products
 	# https://firebase.google.com/docs/ios/setup#available-pods
+
+	pod 'Kingfisher', '~> 6.0'
 
 end

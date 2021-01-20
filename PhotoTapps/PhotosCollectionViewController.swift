@@ -53,21 +53,21 @@ class PhotosCollectionViewController: UICollectionViewController {
         // Turn off scroll indicator
         collectionView.showsVerticalScrollIndicator = false
         
-        // Firebase implement
-        let storageRef = storage.reference().child("images")
-        storageRef.listAll { [weak self] (result, error) in
-          if let error = error {
-            print("list Error\n", error)
-          }
-          for prefix in result.prefixes {
-            print(prefix)
-          }
-          for item in result.items {
-            print(item)
-          }
-            self?.storageSize = String(result.items.count)
-            print(self!.storageSize)
-        }
+//        // Firebase implement
+//        let storageRef = storage.reference().child("images")
+//        storageRef.listAll { [weak self] (result, error) in
+//          if let error = error {
+//            print("list Error\n", error)
+//          }
+//          for prefix in result.prefixes {
+//            print(prefix)
+//          }
+//          for item in result.items {
+//            print(item)
+//          }
+//            self?.storageSize = String(result.items.count)
+//            print(self!.storageSize)
+//        }
         
     }
     
