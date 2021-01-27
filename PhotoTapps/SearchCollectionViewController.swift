@@ -81,22 +81,22 @@ class SearchCollectionViewController: UICollectionViewController {
 //            print(self!.storageSize)
 //        }
         
-        let imageRef = storageRef.child("1.jpg")
-        imageRef.downloadURL { [weak self] (url, error) in
-            guard let url = url else { return }
-            print(url)
-            print(url.absoluteURL)
-            self?.imageURL = url
-            let resource = ImageResource(downloadURL: (self?.imageURL)!)
-            self?.testImageView.kf.setImage(with: resource) { (result) in
-                switch result {
-                case .success(_):
-                    print("success")
-                case .failure(_):
-                    print("fail")
-                }
-            }
-        }
+//        let imageRef = storageRef.child("1.jpg")
+//        imageRef.downloadURL { [weak self] (url, error) in
+//            guard let url = url else { return }
+//            print(url)
+//            print(url.absoluteURL)
+//            self?.imageURL = url
+//            let resource = ImageResource(downloadURL: (self?.imageURL)!)
+//            self?.testImageView.kf.setImage(with: resource) { (result) in
+//                switch result {
+//                case .success(_):
+//                    print("success")
+//                case .failure(_):
+//                    print("fail")
+//                }
+//            }
+//        }
         
         loadStorageData()
     }
@@ -125,8 +125,9 @@ class SearchCollectionViewController: UICollectionViewController {
         if segue.identifier == "pickImageSegue2" {
             let photoVC = segue.destination as! PhotoViewController
             let cell = sender as! PhotoCell
-            photoVC.image = cell.cellImageView.image
+//            photoVC.image = cell.cellImageView.image
             photoVC.imageID = cell.imageID
+            photoVC.imageURL = cell.imageURL
         }
     }
 
@@ -172,31 +173,49 @@ class SearchCollectionViewController: UICollectionViewController {
 //        let imageName = photos[indexPath.item]
 //        let image = UIImage(named: imageName)
 //        cell.cellImageView.image = image
-//        cell.imageID = indexPath.item
+        cell.imageID = indexPath.item
         
         
         
-        // Download 1.jpg from Storage and set it as image in ImageView
-//        let imageRef = storageRef.child("1.jpg")
+        // Download image from Storage and set it as image in ImageView
         print("\nindexpath.item", indexPath.item)
         print("storageItems.count", storageItems.count)
         if indexPath.item < storageItems.count {
             let imageRef = storageItems[indexPath.item]
             
-            imageRef.getData(maxSize: 1 * 1024 * 512) { [weak self] data, error in
+//            imageRef.getData(maxSize: 1 * 1024 * 512) { [weak self] data, error in
+//                if let error = error {
+//                    // Uh-oh, an error occurred!
+//                    print("get Error\n",error)
+//                } else {
+//                    // Data for "images/*.jpg" is returned
+//                    let image = UIImage(data: data!)
+//                    cell.cellImageView.image = image
+//                }
+//            }
+            
+            imageRef.downloadURL { [weak self] (url, error) in
                 if let error = error {
-                    // Uh-oh, an error occurred!
                     print("get Error\n",error)
-                } else {
-                    // Data for "images/*.jpg" is returned
-                    let image = UIImage(data: data!)
-                    cell.cellImageView.image = image
+                }
+                
+                guard let url = url else { return }
+                print(url)
+                print(url.absoluteURL)
+                self?.imageURL = url
+                cell.imageURL = url
+                let resource = ImageResource(downloadURL: (self?.imageURL)!)
+                cell.cellImageView.kf.setImage(with: resource) { (result) in
+                    switch result {
+                    case .success(_):
+                        print("success")
+                    case .failure(_):
+                        print("fail")
+                    }
                 }
             }
-        } else {
             
         }
-        //        collectionView.reloadData()
         
         return cell
     }

@@ -104,6 +104,16 @@
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="collectionHeader" id="Sb4-Qq-cus">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <segmentedControl opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0WK-ht-Jty">
+                                    <rect key="frame" x="189" y="10" width="37" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <segments>
+                                        <segment title=""/>
+                                        <segment title=""/>
+                                    </segments>
+                                </segmentedControl>
+                            </subviews>
                         </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="67D-Dm-Gpo" id="DUl-1j-Bfg"/>
@@ -174,7 +184,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2r4-Ue-1nw">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dog4" translatesAutoresizingMaskIntoConstraints="NO" id="2r4-Ue-1nw">
                                 <rect key="frame" x="7" y="253" width="400" height="400"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="400" id="7gm-BH-nHI"/>
@@ -185,17 +195,17 @@
                         <viewLayoutGuide key="safeArea" id="lno-kd-3eR"/>
                         <color key="backgroundColor" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="2r4-Ue-1nw" firstAttribute="centerY" secondItem="lno-kd-3eR" secondAttribute="centerY" id="91F-Fc-G0W"/>
-                            <constraint firstItem="2r4-Ue-1nw" firstAttribute="centerX" secondItem="lno-kd-3eR" secondAttribute="centerX" id="Xs4-En-BAe"/>
+                            <constraint firstItem="2r4-Ue-1nw" firstAttribute="centerY" secondItem="lno-kd-3eR" secondAttribute="centerY" id="jPh-jy-9eu"/>
+                            <constraint firstItem="2r4-Ue-1nw" firstAttribute="centerX" secondItem="lno-kd-3eR" secondAttribute="centerX" id="jkL-wZ-Y7z"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="testImageView" destination="2r4-Ue-1nw" id="1R1-ZE-YLJ"/>
+                        <outlet property="testImageView" destination="2r4-Ue-1nw" id="Ozu-EH-tsD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WwN-Dy-Ltg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2670" y="850"/>
+            <point key="canvasLocation" x="2669.5652173913045" y="849.77678571428567"/>
         </scene>
         <!--Photo View Controller-->
         <scene sceneID="eNH-Nt-GMj">
@@ -205,11 +215,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S3c-cH-o3s">
-                                <rect key="frame" x="0.0" y="264" width="414" height="280"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S3c-cH-o3s">
+                                <rect key="frame" x="20" y="214" width="374" height="380"/>
+                                <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="280" id="QhL-vP-Uds"/>
+                                    <constraint firstAttribute="height" constant="380" id="NVX-eq-0Uf"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="74D-B3-UAA" appends="YES" id="Gfu-rh-MLQ"/>
+                                </connections>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="67" translatesAutoresizingMaskIntoConstraints="NO" id="zb3-ew-uZM">
                                 <rect key="frame" x="110" y="745" width="194.5" height="22"/>
@@ -236,21 +250,27 @@
                         <viewLayoutGuide key="safeArea" id="dwc-NA-Jni"/>
                         <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="S3c-cH-o3s" firstAttribute="leading" secondItem="dwc-NA-Jni" secondAttribute="leading" constant="20" id="6xG-AL-z1O"/>
                             <constraint firstItem="dwc-NA-Jni" firstAttribute="bottom" secondItem="zb3-ew-uZM" secondAttribute="bottom" constant="41" id="AJG-bc-5x8"/>
-                            <constraint firstItem="dwc-NA-Jni" firstAttribute="trailing" secondItem="S3c-cH-o3s" secondAttribute="trailing" id="VMn-29-0FF"/>
-                            <constraint firstItem="S3c-cH-o3s" firstAttribute="leading" secondItem="dwc-NA-Jni" secondAttribute="leading" id="YLi-sc-RdZ"/>
-                            <constraint firstItem="S3c-cH-o3s" firstAttribute="centerY" secondItem="dwc-NA-Jni" secondAttribute="centerY" id="tlL-q9-zUL"/>
+                            <constraint firstItem="dwc-NA-Jni" firstAttribute="trailing" secondItem="S3c-cH-o3s" secondAttribute="trailing" constant="20" id="Tao-Ss-siQ"/>
+                            <constraint firstItem="S3c-cH-o3s" firstAttribute="centerY" secondItem="dwc-NA-Jni" secondAttribute="centerY" id="hhe-tL-iz2"/>
                             <constraint firstItem="zb3-ew-uZM" firstAttribute="centerX" secondItem="dwc-NA-Jni" secondAttribute="centerX" id="xVl-TY-Zrn"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="K4q-KK-zZS"/>
                     <connections>
                         <outlet property="likeButton" destination="gf3-xd-32w" id="I9E-Uu-TZz"/>
-                        <outlet property="photoImageView" destination="S3c-cH-o3s" id="wZo-J9-vlA"/>
+                        <outlet property="photoImageView" destination="S3c-cH-o3s" id="neI-Zt-zym"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rtd-cS-dtX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="74D-B3-UAA">
+                    <connections>
+                        <action selector="doubleTapImage:" destination="lZi-uA-R8M" id="UnL-E0-ycg"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="916" y="1586"/>
+            <point key="canvasLocation" x="915.94202898550736" y="1585.7142857142856"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Jyl-9o-U1b">
@@ -273,9 +293,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3yt-a2-UEP"/>
+        <segue reference="4cq-9R-SqS"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="dog4" width="640" height="427"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>

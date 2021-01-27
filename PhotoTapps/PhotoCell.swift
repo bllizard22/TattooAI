@@ -10,6 +10,7 @@ import UIKit
 class PhotoCell: UICollectionViewCell {
     
     var imageID: Int?
+    var imageURL: URL?
     
     @IBOutlet weak var cellImageView: UIImageView!
 }

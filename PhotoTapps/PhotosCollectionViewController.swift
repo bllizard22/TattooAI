@@ -75,7 +75,7 @@ class PhotosCollectionViewController: UICollectionViewController {
         if segue.identifier == "pickImageSegue" {
             let photoVC = segue.destination as! PhotoViewController
             let cell = sender as! PhotoCell
-            photoVC.image = cell.cellImageView.image
+//            photoVC.image = cell.cellImageView.image
             photoVC.imageID = cell.imageID
         }
     }
