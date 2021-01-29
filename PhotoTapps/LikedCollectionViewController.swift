@@ -38,7 +38,7 @@ class LikedCollectionViewController: UICollectionViewController {
 //        imageLikes = []
         do {
             try imageLikes = context.fetch(fetchRequest)
-            print("\nLikes: \(imageLikes.count)\n")
+//            print("\nLikes: \(imageLikes.count)\n")
         } catch let error as NSError {
             print(error.localizedDescription)
         }
@@ -79,7 +79,7 @@ class LikedCollectionViewController: UICollectionViewController {
         if segue.identifier == "pickImageSegue3" {
             let photoVC = segue.destination as! PhotoViewController
             let cell = sender as! PhotoCell
-            photoVC.imageURL = cell.imageURL
+            photoVC.imageSegueURL = cell.imageURL
         }
     }
 

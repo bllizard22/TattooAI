@@ -8,25 +8,37 @@
 import UIKit
 import CoreData
 import Kingfisher
+import Firebase
 
 class PhotoViewController: UIViewController {
 
 //    var image: UIImage?
 //    var imageName: String?
 //    var imageID: Int?
-    var imageURL: URL?
-    
+//    var imageEntity: ImageLike?
 //    var imageLikesList: [String] = []
+    var imageSegueURL: URL?
     var imageLikes: [ImageLike] = []
     
+    // MARK: Firebase variables
+//    let storageURL = "gs://firephotos-40d70.appspot.com/"
+//    let folderURL = "images/"
+    let storage = Storage.storage(url:"gs://firephotos-40d70.appspot.com")
+    
+//    var storageRef = Storage.storage(url:"gs://firephotos-40d70.appspot.com").reference().child("images")
+//    var imageURL = URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1920px-Apple_logo_black.svg.png")
+//    var storageSize: String = ""
+    var storageItems: [FirebaseStorage.StorageReference] = []
+    
     @IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var imageScrollView: UIScrollView!
+//    @IBOutlet weak var imageScrollView: UIScrollView!
     
     @IBOutlet weak var likeButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        loadStorageData()
 //        overrideUserInterfaceStyle = .dark
         
         let context = getContext()
@@ -38,16 +50,11 @@ class PhotoViewController: UIViewController {
         
         do {
             try imageLikes = context.fetch(fetchRequest)
-//            for line in imageLikes {
-//                imageLikesList.append(line.imageURL!)
-//            }
         } catch let error as NSError {
             print(error.localizedDescription)
         }
-        print(imageLikesList.count)
-        print(<#T##items: Any...##Any#>)
-        
-        if imageLikesList.contains(imageURL!.absoluteString) {
+
+        if imageLikes.first(where: { $0.imageURL == imageSegueURL?.absoluteString}) != nil {
             likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             likeButton.tintColor = #colorLiteral(red: 0, green: 0.9913747907, blue: 0.7009736896, alpha: 1)
         } else {
@@ -55,7 +62,8 @@ class PhotoViewController: UIViewController {
             likeButton.tintColor = .white
         }
 
-        let resource = ImageResource(downloadURL: imageURL!)
+
+        let resource = ImageResource(downloadURL: imageSegueURL!)
         photoImageView.kf.setImage(with: resource) { (result) in
             switch result {
             case .success(_):
@@ -66,12 +74,12 @@ class PhotoViewController: UIViewController {
             }
         }
         
-//        photoImageView.image = UIImage(named: "dog0.jpg")
         photoImageView.clipsToBounds = true
         photoImageView.layer.cornerRadius = 20
 //        photoImageView.layer.masksToBounds = true
     }
     
+    // MARK: Image zoom
 //    private func setMinZoomScaleForImageSize(_ imageSize: CGSize) {
 //        let widthScale = view.frame.width / imageSize.width
 //        let heightScale = view.frame.height / imageSize.height
@@ -117,6 +125,30 @@ class PhotoViewController: UIViewController {
 //            return zoomRect
 //        }
     
+    func loadStorageData() {
+        // List all images in Storage
+        let storageRef = storage.reference().child("images")
+        storageRef.listAll { [weak self] (result, error) in
+            if let error = error {
+                print("list Error\n", error)
+          }
+          for prefix in result.prefixes {
+            print(prefix)
+          }
+          for item in result.items {
+            print(item)
+            self?.storageItems.append(item)
+          }
+//            storageItems += String(result.items)
+//            let storageSize = String(result.items.count)
+//            print(storageSize)
+//            self?.collectionView.reloadData()
+        }
+    }
+    
+    
+    // MARK: IBActions
+    
     @IBAction func shareAction(_ sender: Any) {
         let shareController = UIActivityViewController(activityItems: [photoImageView.image!], applicationActivities: nil)
         
@@ -124,16 +156,56 @@ class PhotoViewController: UIViewController {
     }
     
     @IBAction func likeAction(_ sender: Any) {
-
-        if imageLikesList.contains(imageURL!.absoluteString) {
-            deleteString(withString: imageURL!.absoluteString)
+        
+        if imageLikes.first(where: { $0.imageURL == imageSegueURL?.absoluteString}) != nil {
+            deleteString(withString: imageSegueURL!.absoluteString)
             likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
             likeButton.tintColor = .white
         } else {
-            saveString(withString: imageURL!.absoluteString)
+            saveString(withString: imageSegueURL!.absoluteString)
             likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             likeButton.tintColor = #colorLiteral(red: 0, green: 0.9913747907, blue: 0.7009736896, alpha: 1)
         }
+    }
+    
+    @IBAction func randomImage(_ sender: Any) {
+        guard let randomItem = storageItems.randomElement() else {return}
+        print(randomItem)
+        
+//        let resource = ImageResource(downloadURL: randomItem)
+//        photoImageView.kf.setImage(with: resource) { (result) in
+//            switch result {
+//            case .success(_):
+////                print("success")
+//                break
+//            case .failure(_):
+//                print("fail")
+//            }
+//        }
+        
+        randomItem.downloadURL { [weak self] (url, error) in
+            if let error = error {
+                print("get Error\n",error)
+            }
+            
+            guard let url = url else { return }
+//                print(url)
+//                print(url.absoluteURL)
+            let newURL = URL(string: "")
+            let imageURL = url
+//            cell.imageURL = url
+            let resource = ImageResource(downloadURL: imageURL)
+            self?.photoImageView.kf.setImage(with: resource) { (result) in
+                switch result {
+                case .success(_):
+                    //                print("success")
+                    break
+                case .failure(_):
+                    print("fail")
+                }
+            }
+        }
+        
     }
     
     // MARK: CoreData work with context and data
@@ -165,44 +237,26 @@ class PhotoViewController: UIViewController {
     // Add new record in CoreData
     private func deleteString(withString title: String) {
         let context = getContext()
-         
-        guard let entity = NSEntityDescription.entity(forEntityName: "ImageLike", in: context) else {return}
         
-        // Create new task
-        let taskObject = ImageLike(entity: entity, insertInto: context)
-        taskObject.imageURL = title
+        let fetchRequest: NSFetchRequest<ImageLike> = ImageLike.fetchRequest()
+        if let result = try? context.fetch(fetchRequest) {
+            for image in result {
+                if image.imageURL == imageSegueURL?.absoluteString {
+                    context.delete(image)
+                    guard let index = imageLikes.firstIndex(where: {$0.imageURL == imageSegueURL?.absoluteString}) else {return}
+                    imageLikes.remove(at: index)
+                }
+            }
+        }
         
-        // Save new task in memory at 0 position
-        context.delete(taskObject)
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.saveContext()
-        if let index = imageLikesList.firstIndex(of: title) {
-            imageLikesList.remove(at: index)
-        }
-        print("delete", imageLikesList.count)
         
         do {
             try context.save()
         } catch let error as NSError  {
             print(error.localizedDescription)
         }
-        
-        let fetchRequest: NSFetchRequest<ImageLike> = ImageLike.fetchRequest()
-        // Sorting of tasks list
-        let sortDescriptor = NSSortDescriptor(key: "imageURL", ascending: false)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        // Obtain data from context
-        var imageLikes: [ImageLike] = []
-        do {
-            try imageLikes = context.fetch(fetchRequest)
-            print("fetch", imageLikes.count)
-            for line in imageLikes {
-                imageLikesList.append(line.imageURL!)
-            }
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
-        print("string", imageLikesList.count)
     }
 
 }

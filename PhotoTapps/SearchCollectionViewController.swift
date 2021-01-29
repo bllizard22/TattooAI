@@ -129,7 +129,7 @@ class SearchCollectionViewController: UICollectionViewController {
             let cell = sender as! PhotoCell
 //            photoVC.image = cell.cellImageView.image
 //            photoVC.imageID = cell.imageID
-            photoVC.imageURL = cell.imageURL
+            photoVC.imageSegueURL = cell.imageURL
         }
     }
 

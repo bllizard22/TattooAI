@@ -106,12 +106,13 @@
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <segmentedControl opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0WK-ht-Jty">
-                                    <rect key="frame" x="189" y="10" width="37" height="32"/>
+                                    <rect key="frame" x="180" y="10" width="55" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <segments>
-                                        <segment title=""/>
-                                        <segment title=""/>
+                                        <segment title="1"/>
+                                        <segment title="3"/>
                                     </segments>
+                                    <color key="selectedSegmentTintColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </segmentedControl>
                             </subviews>
                         </collectionReusableView>
@@ -226,20 +227,29 @@
                                 </connections>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="67" translatesAutoresizingMaskIntoConstraints="NO" id="zb3-ew-uZM">
-                                <rect key="frame" x="110" y="745" width="194.5" height="22"/>
+                                <rect key="frame" x="110.5" y="738" width="193" height="22"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JT5-GC-bLl">
-                                        <rect key="frame" x="0.0" y="0.0" width="70" height="22"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="19" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="tintColor" systemColor="systemBackgroundColor"/>
-                                        <state key="normal" title=" Share" image="square.and.arrow.up" catalog="system"/>
+                                        <state key="normal" image="square.and.arrow.up" catalog="system"/>
                                         <connections>
                                             <action selector="shareAction:" destination="lZi-uA-R8M" eventType="touchUpInside" id="Qjq-7Z-Pej"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gf3-xd-32w">
-                                        <rect key="frame" x="137" y="0.0" width="57.5" height="22"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ezs-Up-pVi">
+                                        <rect key="frame" x="86" y="0.0" width="19.5" height="22"/>
                                         <color key="tintColor" systemColor="systemBackgroundColor"/>
-                                        <state key="normal" title=" Like" image="heart" catalog="system"/>
+                                        <state key="normal" image="die.face.5.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="randomImage:" destination="lZi-uA-R8M" eventType="touchUpInside" id="VeG-KQ-RLe"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gf3-xd-32w">
+                                        <rect key="frame" x="172.5" y="0.0" width="20.5" height="22"/>
+                                        <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                        <state key="normal" image="heart" catalog="system"/>
                                         <connections>
                                             <action selector="likeAction:" destination="lZi-uA-R8M" eventType="touchUpInside" id="xrf-wp-cEy"/>
                                         </connections>
@@ -251,10 +261,10 @@
                         <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="S3c-cH-o3s" firstAttribute="leading" secondItem="dwc-NA-Jni" secondAttribute="leading" constant="20" id="6xG-AL-z1O"/>
-                            <constraint firstItem="dwc-NA-Jni" firstAttribute="bottom" secondItem="zb3-ew-uZM" secondAttribute="bottom" constant="41" id="AJG-bc-5x8"/>
                             <constraint firstItem="dwc-NA-Jni" firstAttribute="trailing" secondItem="S3c-cH-o3s" secondAttribute="trailing" constant="20" id="Tao-Ss-siQ"/>
+                            <constraint firstItem="dwc-NA-Jni" firstAttribute="bottom" secondItem="zb3-ew-uZM" secondAttribute="bottom" constant="48" id="gRG-cc-GVe"/>
                             <constraint firstItem="S3c-cH-o3s" firstAttribute="centerY" secondItem="dwc-NA-Jni" secondAttribute="centerY" id="hhe-tL-iz2"/>
-                            <constraint firstItem="zb3-ew-uZM" firstAttribute="centerX" secondItem="dwc-NA-Jni" secondAttribute="centerX" id="xVl-TY-Zrn"/>
+                            <constraint firstItem="zb3-ew-uZM" firstAttribute="centerX" secondItem="Kt3-ty-udj" secondAttribute="centerX" id="koY-6o-jXe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="K4q-KK-zZS"/>
@@ -293,9 +303,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3yt-a2-UEP"/>
+        <segue reference="4cq-9R-SqS"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="die.face.5.fill" catalog="system" width="128" height="114"/>
         <image name="dog4" width="640" height="427"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
