@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		77F923792418852E946EF238 /* Pods_PhotoTapps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B425D64ABE92482C3C71DF54 /* Pods_PhotoTapps.framework */; };
+		851AF33725C12B94003ADA5F /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 851AF33525C12B94003ADA5F /* UserData.xcdatamodeld */; };
 		853156E425B58F4100738F95 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 853156E325B58F4100738F95 /* GoogleService-Info.plist */; };
 		8579963825AC7D7A00C9EA93 /* SearchCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8579963725AC7D7A00C9EA93 /* SearchCollectionViewController.swift */; };
 		8579963B25AC7D8C00C9EA93 /* LikedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8579963A25AC7D8C00C9EA93 /* LikedCollectionViewController.swift */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		197090B37798951690A7B807 /* Pods-PhotoTapps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoTapps.release.xcconfig"; path = "Target Support Files/Pods-PhotoTapps/Pods-PhotoTapps.release.xcconfig"; sourceTree = "<group>"; };
 		31C13794262628A9BD7A7B0F /* Pods-PhotoTapps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoTapps.debug.xcconfig"; path = "Target Support Files/Pods-PhotoTapps/Pods-PhotoTapps.debug.xcconfig"; sourceTree = "<group>"; };
+		851AF33625C12B94003ADA5F /* UserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserData.xcdatamodel; sourceTree = "<group>"; };
 		853156E325B58F4100738F95 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8579963725AC7D7A00C9EA93 /* SearchCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewController.swift; sourceTree = "<group>"; };
 		8579963A25AC7D8C00C9EA93 /* LikedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedCollectionViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				857C590A25AACCF7000803F2 /* LaunchScreen.storyboard */,
 				857C590D25AACCF7000803F2 /* Info.plist */,
 				853156E325B58F4100738F95 /* GoogleService-Info.plist */,
+				851AF33525C12B94003ADA5F /* UserData.xcdatamodeld */,
 			);
 			path = PhotoTapps;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				851AF33725C12B94003ADA5F /* UserData.xcdatamodeld in Sources */,
 				8579963B25AC7D8C00C9EA93 /* LikedCollectionViewController.swift in Sources */,
 				857C591B25AAD00F000803F2 /* PhotoCell.swift in Sources */,
 				85A91F5D25B826DD00000BF9 /* TestViewController.swift in Sources */,
@@ -437,6 +441,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		851AF33525C12B94003ADA5F /* UserData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				851AF33625C12B94003ADA5F /* UserData.xcdatamodel */,
+			);
+			currentVersion = 851AF33625C12B94003ADA5F /* UserData.xcdatamodel */;
+			path = UserData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 857C58F425AACCF6000803F2 /* Project object */;
 }

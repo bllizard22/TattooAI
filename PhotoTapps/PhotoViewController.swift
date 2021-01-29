@@ -6,14 +6,19 @@
 //
 
 import UIKit
+import CoreData
 import Kingfisher
 
 class PhotoViewController: UIViewController {
 
 //    var image: UIImage?
 //    var imageName: String?
-    var imageID: Int?
+//    var imageID: Int?
     var imageURL: URL?
+    
+//    var imageLikesList: [String] = []
+    var imageLikes: [ImageLike] = []
+    
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var imageScrollView: UIScrollView!
     
@@ -21,22 +26,41 @@ class PhotoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        if GlobalVariables.photos[imageID!]!.liked {
-//            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-//            likeButton.tintColor = .white
-//        } else {
-//            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
-//            likeButton.tintColor = .black
-//        }
-        
+    
 //        overrideUserInterfaceStyle = .dark
+        
+        let context = getContext()
+        let fetchRequest: NSFetchRequest<ImageLike> = ImageLike.fetchRequest()
+        // Sorting of tasks list
+        let sortDescriptor = NSSortDescriptor(key: "imageURL", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        // Obtain data from context
+        
+        do {
+            try imageLikes = context.fetch(fetchRequest)
+//            for line in imageLikes {
+//                imageLikesList.append(line.imageURL!)
+//            }
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        print(imageLikesList.count)
+        print(<#T##items: Any...##Any#>)
+        
+        if imageLikesList.contains(imageURL!.absoluteString) {
+            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            likeButton.tintColor = #colorLiteral(red: 0, green: 0.9913747907, blue: 0.7009736896, alpha: 1)
+        } else {
+            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            likeButton.tintColor = .white
+        }
 
         let resource = ImageResource(downloadURL: imageURL!)
         photoImageView.kf.setImage(with: resource) { (result) in
             switch result {
             case .success(_):
-                print("success")
+//                print("success")
+                break
             case .failure(_):
                 print("fail")
             }
@@ -44,7 +68,7 @@ class PhotoViewController: UIViewController {
         
 //        photoImageView.image = UIImage(named: "dog0.jpg")
         photoImageView.clipsToBounds = true
-        photoImageView.layer.cornerRadius = 30
+        photoImageView.layer.cornerRadius = 20
 //        photoImageView.layer.masksToBounds = true
     }
     
@@ -100,34 +124,105 @@ class PhotoViewController: UIViewController {
     }
     
     @IBAction func likeAction(_ sender: Any) {
-        GlobalVariables.photos[imageID!]!.liked = !GlobalVariables.photos[imageID!]!.liked
-        if GlobalVariables.photos[imageID!]!.liked {
-            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+
+        if imageLikesList.contains(imageURL!.absoluteString) {
+            deleteString(withString: imageURL!.absoluteString)
+            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
             likeButton.tintColor = .white
         } else {
-            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
-            likeButton.tintColor = .black
+            saveString(withString: imageURL!.absoluteString)
+            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            likeButton.tintColor = #colorLiteral(red: 0, green: 0.9913747907, blue: 0.7009736896, alpha: 1)
         }
+    }
+    
+    // MARK: CoreData work with context and data
+    
+    // Get context for app
+    private func getContext() -> NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }
+    
+    // Add new record in CoreData
+    private func saveString(withString title: String) {
+        let context = getContext()
+         
+        guard let entity = NSEntityDescription.entity(forEntityName: "ImageLike", in: context) else {return}
+        
+        // Create new task
+        let taskObject = ImageLike(entity: entity, insertInto: context)
+        taskObject.imageURL = title
+        
+        // Save new task in memory at 0 position
+        do {
+            try context.save()
+        } catch let error as NSError  {
+            print(error.localizedDescription)
+        }
+    }
+    
+    // Add new record in CoreData
+    private func deleteString(withString title: String) {
+        let context = getContext()
+         
+        guard let entity = NSEntityDescription.entity(forEntityName: "ImageLike", in: context) else {return}
+        
+        // Create new task
+        let taskObject = ImageLike(entity: entity, insertInto: context)
+        taskObject.imageURL = title
+        
+        // Save new task in memory at 0 position
+        context.delete(taskObject)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.saveContext()
+        if let index = imageLikesList.firstIndex(of: title) {
+            imageLikesList.remove(at: index)
+        }
+        print("delete", imageLikesList.count)
+        
+        do {
+            try context.save()
+        } catch let error as NSError  {
+            print(error.localizedDescription)
+        }
+        
+        let fetchRequest: NSFetchRequest<ImageLike> = ImageLike.fetchRequest()
+        // Sorting of tasks list
+        let sortDescriptor = NSSortDescriptor(key: "imageURL", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        // Obtain data from context
+        var imageLikes: [ImageLike] = []
+        do {
+            try imageLikes = context.fetch(fetchRequest)
+            print("fetch", imageLikes.count)
+            for line in imageLikes {
+                imageLikesList.append(line.imageURL!)
+            }
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        print("string", imageLikesList.count)
     }
 
 }
 
-extension UIImageView {
-  func enableZoom() {
-    let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(startZooming(_:)))
-    isUserInteractionEnabled = true
-    addGestureRecognizer(pinchGesture)
-  }
-
-  @objc
-  private func startZooming(_ sender: UIPinchGestureRecognizer) {
-    let scaleResult = sender.view?.transform.scaledBy(x: sender.scale, y: sender.scale)
-    guard let scale = scaleResult, scale.a > 1, scale.d > 1 else { return }
-    sender.view?.transform = scale
-    sender.scale = 1
-  }
-}
-
+//extension UIImageView {
+//  func enableZoom() {
+//    let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(startZooming(_:)))
+//    isUserInteractionEnabled = true
+//    addGestureRecognizer(pinchGesture)
+//  }
+//
+//  @objc
+//  private func startZooming(_ sender: UIPinchGestureRecognizer) {
+//    let scaleResult = sender.view?.transform.scaledBy(x: sender.scale, y: sender.scale)
+//    guard let scale = scaleResult, scale.a > 1, scale.d > 1 else { return }
+//    sender.view?.transform = scale
+//    sender.scale = 1
+//  }
+//}
+//
 //extension PhotoViewController: UIScrollViewDelegate {
 //    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
 //        return photoImageView

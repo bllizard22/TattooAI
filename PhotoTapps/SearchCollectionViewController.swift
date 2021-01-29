@@ -14,6 +14,8 @@ class SearchCollectionViewController: UICollectionViewController {
     let paddingWidth: CGFloat = 3
     let itemsPerRow: CGFloat = 3
     
+    var imageLikes: [ImageLike] = []
+    
     let storageURL = "gs://firephotos-40d70.appspot.com/"
     let folderURL = "images/"
     
@@ -126,7 +128,7 @@ class SearchCollectionViewController: UICollectionViewController {
             let photoVC = segue.destination as! PhotoViewController
             let cell = sender as! PhotoCell
 //            photoVC.image = cell.cellImageView.image
-            photoVC.imageID = cell.imageID
+//            photoVC.imageID = cell.imageID
             photoVC.imageURL = cell.imageURL
         }
     }
@@ -178,8 +180,8 @@ class SearchCollectionViewController: UICollectionViewController {
         
         
         // Download image from Storage and set it as image in ImageView
-        print("\nindexpath.item", indexPath.item)
-        print("storageItems.count", storageItems.count)
+//        print("\nindexpath.item", indexPath.item)
+//        print("storageItems.count", storageItems.count)
         if indexPath.item < storageItems.count {
             let imageRef = storageItems[indexPath.item]
             
@@ -200,15 +202,17 @@ class SearchCollectionViewController: UICollectionViewController {
                 }
                 
                 guard let url = url else { return }
-                print(url)
-                print(url.absoluteURL)
+//                print(url)
+//                print(url.absoluteURL)
+                let newURL = URL(string: "")
                 self?.imageURL = url
                 cell.imageURL = url
                 let resource = ImageResource(downloadURL: (self?.imageURL)!)
                 cell.cellImageView.kf.setImage(with: resource) { (result) in
                     switch result {
                     case .success(_):
-                        print("success")
+                        //                print("success")
+                        break
                     case .failure(_):
                         print("fail")
                     }
