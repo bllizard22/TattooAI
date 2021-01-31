@@ -19,6 +19,7 @@ class PhotoViewController: UIViewController {
 //    var imageLikesList: [String] = []
     var imageSegueURL: URL?
     var imageLikes: [ImageLike] = []
+    var likedVC: LikedCollectionViewController?
     
     // MARK: Firebase variables
 //    let storageURL = "gs://firephotos-40d70.appspot.com/"
@@ -79,6 +80,14 @@ class PhotoViewController: UIViewController {
 //        photoImageView.layer.masksToBounds = true
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        guard likedVC != nil else {
+            return
+        }
+        likedVC?.collectionView.reloadData()
+    }
     // MARK: Image zoom
 //    private func setMinZoomScaleForImageSize(_ imageSize: CGSize) {
 //        let widthScale = view.frame.width / imageSize.width

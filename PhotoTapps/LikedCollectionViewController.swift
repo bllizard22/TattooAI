@@ -80,6 +80,7 @@ class LikedCollectionViewController: UICollectionViewController {
             let photoVC = segue.destination as! PhotoViewController
             let cell = sender as! PhotoCell
             photoVC.imageSegueURL = cell.imageURL
+            photoVC.likedVC = self
         }
     }
 
