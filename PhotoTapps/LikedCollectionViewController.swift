@@ -77,7 +77,8 @@ class LikedCollectionViewController: UICollectionViewController {
     // Segue to image detail view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "pickImageSegue3" {
-            let photoVC = segue.destination as! PhotoViewController
+            let navVC = segue.destination as! UINavigationController
+            let photoVC = navVC.viewControllers.first as! PhotoViewController
             let cell = sender as! PhotoCell
             photoVC.imageSegueURL = cell.imageURL
             photoVC.likedVC = self

@@ -213,10 +213,10 @@
                                 </connections>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="67" translatesAutoresizingMaskIntoConstraints="NO" id="zb3-ew-uZM">
-                                <rect key="frame" x="110.5" y="738" width="193" height="22"/>
+                                <rect key="frame" x="100.5" y="720" width="213.5" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JT5-GC-bLl">
-                                        <rect key="frame" x="0.0" y="0.0" width="19" height="22"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="19" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="tintColor" systemColor="systemBackgroundColor"/>
                                         <state key="normal" image="square.and.arrow.up" catalog="system"/>
@@ -225,15 +225,19 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ezs-Up-pVi">
-                                        <rect key="frame" x="86" y="0.0" width="19.5" height="22"/>
-                                        <color key="tintColor" systemColor="systemBackgroundColor"/>
-                                        <state key="normal" image="die.face.5.fill" catalog="system"/>
+                                        <rect key="frame" x="86" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="SSX-5x-qek"/>
+                                            <constraint firstAttribute="height" constant="40" id="xgR-gZ-59y"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.45009386540000001" green="0.98132258650000004" blue="0.4743030667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="dice"/>
                                         <connections>
                                             <action selector="randomImage:" destination="lZi-uA-R8M" eventType="touchUpInside" id="Zfe-3I-0pf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gf3-xd-32w">
-                                        <rect key="frame" x="172.5" y="0.0" width="20.5" height="22"/>
+                                        <rect key="frame" x="193" y="0.0" width="20.5" height="40"/>
                                         <color key="tintColor" systemColor="systemBackgroundColor"/>
                                         <state key="normal" image="heart" catalog="system"/>
                                         <connections>
@@ -256,6 +260,9 @@
                     <navigationItem key="navigationItem" id="K4q-KK-zZS">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="g9e-6L-FVr">
                             <color key="tintColor" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="cancelAction:" destination="lZi-uA-R8M" id="VyK-lz-Lsf"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -295,6 +302,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="stp-BW-33H" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Uuq-dv-5NQ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rWc-0B-FVC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -314,7 +322,7 @@
         <segue reference="4cq-9R-SqS"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="die.face.5.fill" catalog="system" width="128" height="114"/>
+        <image name="dice" width="128" height="128"/>
         <image name="dog4" width="640" height="427"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>

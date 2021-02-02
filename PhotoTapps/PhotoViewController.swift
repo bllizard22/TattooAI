@@ -152,6 +152,12 @@ class PhotoViewController: UIViewController {
         checkLike()
     }
     
+    @IBAction func cancelAction(_ sender: UIBarButtonItem) {
+        dismiss(animated: true) {
+            
+        }
+    }
+    
     // MARK: CoreData work with context and data
     
     // Get context for app

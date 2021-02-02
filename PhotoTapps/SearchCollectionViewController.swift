@@ -125,7 +125,8 @@ class SearchCollectionViewController: UICollectionViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "pickImageSegue2" {
-            let photoVC = segue.destination as! PhotoViewController
+            let navVC = segue.destination as! UINavigationController
+            let photoVC = navVC.viewControllers.first as! PhotoViewController
             let cell = sender as! PhotoCell
 //            photoVC.image = cell.cellImageView.image
 //            photoVC.imageID = cell.imageID
