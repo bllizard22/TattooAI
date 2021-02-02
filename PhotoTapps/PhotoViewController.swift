@@ -39,14 +39,7 @@ class PhotoViewController: UIViewController {
         
         loadCoreData()
 
-        if imageLikes.first(where: { $0.imageURL == imageSegueURL?.absoluteString}) != nil {
-            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            likeButton.tintColor = #colorLiteral(red: 0, green: 0.99, blue: 0.70, alpha: 1)
-        } else {
-            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
-            likeButton.tintColor = .white
-        }
-
+        checkLike()
 
         let resource = ImageResource(downloadURL: imageSegueURL!)
         photoImageView.kf.setImage(with: resource) { (result) in
@@ -92,6 +85,15 @@ class PhotoViewController: UIViewController {
         }
     }
     
+    func checkLike() {
+        if imageLikes.first(where: { $0.imageURL == imageSegueURL?.absoluteString}) != nil {
+            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            likeButton.tintColor = #colorLiteral(red: 0, green: 0.99, blue: 0.70, alpha: 1)
+        } else {
+            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            likeButton.tintColor = .white
+        }
+    }
     
     // MARK: IBActions
     
@@ -107,13 +109,12 @@ class PhotoViewController: UIViewController {
             deleteString(withString: imageSegueURL!.absoluteString)
             likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
             likeButton.tintColor = .white
-            loadCoreData()
         } else {
             saveString(withString: imageSegueURL!.absoluteString)
             likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             likeButton.tintColor = #colorLiteral(red: 0, green: 0.9913747907, blue: 0.7009736896, alpha: 1)
-            loadCoreData()
         }
+        loadCoreData()
     }
     
     @IBAction func randomImage(_ sender: Any) {
@@ -128,8 +129,9 @@ class PhotoViewController: UIViewController {
             guard let url = url else { return }
 //                print(url)
 //                print(url.absoluteURL)
-            let newURL = URL(string: "")
+//            let newURL = URL(string: "")
             let imageURL = url
+            self?.imageSegueURL = url
             //            cell.imageURL = url
             let resource = ImageResource(downloadURL: imageURL)
             self?.photoImageView.kf.setImage(with: resource,
@@ -147,6 +149,7 @@ class PhotoViewController: UIViewController {
                 }
             }
         }
+        checkLike()
     }
     
     // MARK: CoreData work with context and data
