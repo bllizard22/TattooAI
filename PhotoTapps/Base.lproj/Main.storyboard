@@ -243,7 +243,7 @@
                                         <color key="tintColor" systemColor="systemBackgroundColor"/>
                                         <state key="normal" image="die.face.5.fill" catalog="system"/>
                                         <connections>
-                                            <action selector="randomImage:" destination="lZi-uA-R8M" eventType="touchUpInside" id="VeG-KQ-RLe"/>
+                                            <action selector="randomImage:" destination="lZi-uA-R8M" eventType="touchUpInside" id="Zfe-3I-0pf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gf3-xd-32w">
