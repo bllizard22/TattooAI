@@ -31,6 +31,7 @@ class SearchCollectionViewController: UICollectionViewController {
         
         overrideUserInterfaceStyle = .dark
         
+        
         // Count size of item based on screen size
         let paddingTotalWidth = paddingWidth * (itemsPerRow + 1)
         let itemWidth = CGFloat(Int( (collectionView.frame.width - paddingTotalWidth) / itemsPerRow ))

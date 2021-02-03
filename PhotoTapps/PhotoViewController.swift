@@ -10,6 +10,12 @@ import CoreData
 import Kingfisher
 import Firebase
 
+struct MainColor {
+    static var red: CGFloat = 100/255
+    static var green: CGFloat = 180/255
+    static var blue: CGFloat = 160/255
+}
+
 class PhotoViewController: UIViewController {
 
     var imageSegueURL: URL?
@@ -27,7 +33,10 @@ class PhotoViewController: UIViewController {
     
     
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var randomButton: UIButton!
+    
     //    @IBOutlet weak var imageScrollView: UIScrollView!
 
     
@@ -51,6 +60,17 @@ class PhotoViewController: UIViewController {
                 print("fail")
             }
         }
+                
+        
+        let randomButtonImage = UIImage(named: "dice")?.withRenderingMode(.alwaysTemplate)
+        randomButton.setImage(randomButtonImage, for: .normal)
+        randomButton.tintColor = .white
+        randomButton.frame.size = CGSize(width: 100, height: 100)
+        
+        let likeButtonImage = UIImage(named: "like_fill")?.withRenderingMode(.alwaysTemplate)
+        likeButton.setImage(likeButtonImage, for: .normal)
+        likeButton.tintColor = .white
+        likeButton.frame.size = CGSize(width: 100, height: 100)
         
         photoImageView.clipsToBounds = true
         photoImageView.layer.cornerRadius = 20
@@ -87,10 +107,16 @@ class PhotoViewController: UIViewController {
     
     func checkLike() {
         if imageLikes.first(where: { $0.imageURL == imageSegueURL?.absoluteString}) != nil {
-            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            likeButton.tintColor = #colorLiteral(red: 0, green: 0.99, blue: 0.70, alpha: 1)
+            likeButton.setImage(UIImage(named: "like_fill")?.withRenderingMode(.alwaysTemplate),
+                                for: .normal)
+            
+            likeButton.tintColor = UIColor(red: MainColor.red,
+                                           green: MainColor.green,
+                                           blue: MainColor.blue,
+                                           alpha: 1.0)
         } else {
-            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            likeButton.setImage(UIImage(named: "like")?.withRenderingMode(.alwaysTemplate),
+                                for: .normal)
             likeButton.tintColor = .white
         }
     }
@@ -107,12 +133,17 @@ class PhotoViewController: UIViewController {
         
         if imageLikes.first(where: { $0.imageURL == imageSegueURL?.absoluteString}) != nil {
             deleteString(withString: imageSegueURL!.absoluteString)
-            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            likeButton.setImage(UIImage(named: "like")?.withRenderingMode(.alwaysTemplate),
+                                for: .normal)
             likeButton.tintColor = .white
         } else {
             saveString(withString: imageSegueURL!.absoluteString)
-            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            likeButton.tintColor = #colorLiteral(red: 0, green: 0.9913747907, blue: 0.7009736896, alpha: 1)
+            likeButton.setImage(UIImage(named: "like_fill")?.withRenderingMode(.alwaysTemplate),
+                                for: .normal)
+            likeButton.tintColor = UIColor(red: MainColor.red,
+                                           green: MainColor.green,
+                                           blue: MainColor.blue,
+                                           alpha: 1)
         }
         loadCoreData()
     }
@@ -134,6 +165,7 @@ class PhotoViewController: UIViewController {
             self?.imageSegueURL = url
             //            cell.imageURL = url
             let resource = ImageResource(downloadURL: imageURL)
+            self?.checkLike()
             self?.photoImageView.kf.setImage(with: resource,
 //                                             placeholder: UIImage(systemName: "heart"),
                                              options: [.progressiveJPEG(ImageProgressive(isBlur: true, isFastestScan: true, scanInterval: 0.5)),
@@ -142,14 +174,13 @@ class PhotoViewController: UIViewController {
             { (result) in
                 switch result {
                 case .success(_):
-                    //                print("success")
+//                    self?.checkLike()
                     break
                 case .failure(_):
                     print("fail")
                 }
             }
         }
-        checkLike()
     }
     
     @IBAction func cancelAction(_ sender: UIBarButtonItem) {

@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -106,7 +107,10 @@
                             <outlet property="delegate" destination="67D-Dm-Gpo" id="yPl-SA-7Oy"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="" image="magnifyingglass" catalog="system" id="Pdr-KX-SVf"/>
+                    <tabBarItem key="tabBarItem" title="" id="Pdr-KX-SVf">
+                        <imageReference key="image" image="magnifyingglass" catalog="system" renderingMode="template"/>
+                        <color key="badgeColor" red="0.3921568627" green="0.70588235290000001" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3me-8q-R9U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -171,7 +175,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dog4" translatesAutoresizingMaskIntoConstraints="NO" id="2r4-Ue-1nw">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list" translatesAutoresizingMaskIntoConstraints="NO" id="2r4-Ue-1nw">
                                 <rect key="frame" x="7" y="253" width="400" height="400"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="400" id="7gm-BH-nHI"/>
@@ -180,7 +184,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lno-kd-3eR"/>
-                        <color key="backgroundColor" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.3921568627" green="0.70588235290000001" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="2r4-Ue-1nw" firstAttribute="centerY" secondItem="lno-kd-3eR" secondAttribute="centerY" id="jPh-jy-9eu"/>
                             <constraint firstItem="2r4-Ue-1nw" firstAttribute="centerX" secondItem="lno-kd-3eR" secondAttribute="centerX" id="jkL-wZ-Y7z"/>
@@ -213,13 +217,15 @@
                                 </connections>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="67" translatesAutoresizingMaskIntoConstraints="NO" id="zb3-ew-uZM">
-                                <rect key="frame" x="100.5" y="720" width="213.5" height="40"/>
+                                <rect key="frame" x="90.5" y="720" width="233" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JT5-GC-bLl">
                                         <rect key="frame" x="0.0" y="0.0" width="19" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="tintColor" systemColor="systemBackgroundColor"/>
-                                        <state key="normal" image="square.and.arrow.up" catalog="system"/>
+                                        <state key="normal">
+                                            <imageReference key="image" image="square.and.arrow.up" catalog="system" symbolScale="default" renderingMode="template"/>
+                                        </state>
                                         <connections>
                                             <action selector="shareAction:" destination="lZi-uA-R8M" eventType="touchUpInside" id="Qjq-7Z-Pej"/>
                                         </connections>
@@ -230,16 +236,21 @@
                                             <constraint firstAttribute="width" constant="40" id="SSX-5x-qek"/>
                                             <constraint firstAttribute="height" constant="40" id="xgR-gZ-59y"/>
                                         </constraints>
-                                        <color key="tintColor" red="0.45009386540000001" green="0.98132258650000004" blue="0.4743030667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="dice"/>
                                         <connections>
                                             <action selector="randomImage:" destination="lZi-uA-R8M" eventType="touchUpInside" id="Zfe-3I-0pf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gf3-xd-32w">
-                                        <rect key="frame" x="193" y="0.0" width="20.5" height="40"/>
+                                        <rect key="frame" x="193" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="39I-uX-Xco"/>
+                                            <constraint firstAttribute="height" constant="40" id="fOI-1l-CEk"/>
+                                        </constraints>
                                         <color key="tintColor" systemColor="systemBackgroundColor"/>
-                                        <state key="normal" image="heart" catalog="system"/>
+                                        <state key="normal">
+                                            <imageReference key="image" image="like" symbolScale="default"/>
+                                        </state>
                                         <connections>
                                             <action selector="likeAction:" destination="lZi-uA-R8M" eventType="touchUpInside" id="xrf-wp-cEy"/>
                                         </connections>
@@ -258,8 +269,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="K4q-KK-zZS">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="g9e-6L-FVr">
-                            <color key="tintColor" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="g9e-6L-FVr">
+                            <color key="tintColor" red="0.3921568627" green="0.70588235290000001" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="cancelAction:" destination="lZi-uA-R8M" id="VyK-lz-Lsf"/>
                             </connections>
@@ -268,6 +279,8 @@
                     <connections>
                         <outlet property="likeButton" destination="gf3-xd-32w" id="I9E-Uu-TZz"/>
                         <outlet property="photoImageView" destination="S3c-cH-o3s" id="neI-Zt-zym"/>
+                        <outlet property="randomButton" destination="Ezs-Up-pVi" id="kMt-Zi-aqZ"/>
+                        <outlet property="shareButton" destination="JT5-GC-bLl" id="JyK-Sz-K8F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rtd-cS-dtX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -287,6 +300,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="SXF-pa-FSa">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="selectedImageTintColor" red="0.39215686274509803" green="0.70588235294117641" blue="0.62745098039215685" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="67D-Dm-Gpo" kind="relationship" relationship="viewControllers" id="kLo-2W-uOs"/>
@@ -323,9 +337,9 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="dice" width="128" height="128"/>
-        <image name="dog4" width="640" height="427"/>
-        <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="like" width="128" height="128"/>
+        <image name="list" width="64" height="64"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
