@@ -207,7 +207,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S3c-cH-o3s">
-                                <rect key="frame" x="20" y="242" width="374" height="380"/>
+                                <rect key="frame" x="20" y="136" width="374" height="380"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="380" id="NVX-eq-0Uf"/>
@@ -217,24 +217,24 @@
                                 </connections>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="67" translatesAutoresizingMaskIntoConstraints="NO" id="zb3-ew-uZM">
-                                <rect key="frame" x="90.5" y="720" width="233" height="40"/>
+                                <rect key="frame" x="100.5" y="740" width="213" height="28"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JT5-GC-bLl">
-                                        <rect key="frame" x="0.0" y="0.0" width="19" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="23" height="28"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="tintColor" systemColor="systemBackgroundColor"/>
                                         <state key="normal">
-                                            <imageReference key="image" image="square.and.arrow.up" catalog="system" symbolScale="default" renderingMode="template"/>
+                                            <imageReference key="image" image="square.and.arrow.up" catalog="system" symbolScale="large" renderingMode="template"/>
                                         </state>
                                         <connections>
                                             <action selector="shareAction:" destination="lZi-uA-R8M" eventType="touchUpInside" id="Qjq-7Z-Pej"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ezs-Up-pVi">
-                                        <rect key="frame" x="86" y="0.0" width="40" height="40"/>
+                                        <rect key="frame" x="90" y="0.0" width="28" height="28"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="SSX-5x-qek"/>
-                                            <constraint firstAttribute="height" constant="40" id="xgR-gZ-59y"/>
+                                            <constraint firstAttribute="width" constant="28" id="SSX-5x-qek"/>
+                                            <constraint firstAttribute="height" constant="28" id="xgR-gZ-59y"/>
                                         </constraints>
                                         <state key="normal" image="dice"/>
                                         <connections>
@@ -242,30 +242,30 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gf3-xd-32w">
-                                        <rect key="frame" x="193" y="0.0" width="40" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="39I-uX-Xco"/>
-                                            <constraint firstAttribute="height" constant="40" id="fOI-1l-CEk"/>
-                                        </constraints>
+                                        <rect key="frame" x="185" y="0.0" width="28" height="28"/>
                                         <color key="tintColor" systemColor="systemBackgroundColor"/>
                                         <state key="normal">
-                                            <imageReference key="image" image="like" symbolScale="default"/>
+                                            <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
                                         </state>
                                         <connections>
                                             <action selector="likeAction:" destination="lZi-uA-R8M" eventType="touchUpInside" id="xrf-wp-cEy"/>
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="gf3-xd-32w" firstAttribute="width" secondItem="Ezs-Up-pVi" secondAttribute="width" id="Uxe-Te-QMI"/>
+                                    <constraint firstAttribute="height" constant="28" id="b25-e2-x6O"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dwc-NA-Jni"/>
                         <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="S3c-cH-o3s" firstAttribute="leading" secondItem="dwc-NA-Jni" secondAttribute="leading" constant="20" id="6xG-AL-z1O"/>
+                            <constraint firstItem="dwc-NA-Jni" firstAttribute="bottom" secondItem="zb3-ew-uZM" secondAttribute="bottom" constant="40" id="FRf-iv-Wjg"/>
                             <constraint firstItem="dwc-NA-Jni" firstAttribute="trailing" secondItem="S3c-cH-o3s" secondAttribute="trailing" constant="20" id="Tao-Ss-siQ"/>
-                            <constraint firstItem="dwc-NA-Jni" firstAttribute="bottom" secondItem="zb3-ew-uZM" secondAttribute="bottom" constant="48" id="gRG-cc-GVe"/>
-                            <constraint firstItem="S3c-cH-o3s" firstAttribute="centerY" secondItem="dwc-NA-Jni" secondAttribute="centerY" id="hhe-tL-iz2"/>
                             <constraint firstItem="zb3-ew-uZM" firstAttribute="centerX" secondItem="Kt3-ty-udj" secondAttribute="centerX" id="koY-6o-jXe"/>
+                            <constraint firstItem="S3c-cH-o3s" firstAttribute="top" secondItem="dwc-NA-Jni" secondAttribute="top" constant="80" id="riH-6f-Q1h"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="K4q-KK-zZS">
@@ -337,8 +337,8 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="dice" width="128" height="128"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
-        <image name="like" width="128" height="128"/>
         <image name="list" width="64" height="64"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
