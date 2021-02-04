@@ -48,8 +48,6 @@ class PhotoViewController: UIViewController {
         
         loadCoreData()
 
-        checkLike()
-
         let resource = ImageResource(downloadURL: imageSegueURL!)
         photoImageView.kf.setImage(with: resource) { (result) in
             switch result {
@@ -70,7 +68,9 @@ class PhotoViewController: UIViewController {
         let likeButtonImage = UIImage(named: "like_fill")?.withRenderingMode(.alwaysTemplate)
         likeButton.setImage(likeButtonImage, for: .normal)
         likeButton.tintColor = .white
-        likeButton.frame.size = CGSize(width: 100, height: 100)
+//        likeButton.frame.size = CGSize(width: 100, height: 100)
+        
+        checkLike()
         
         photoImageView.clipsToBounds = true
         photoImageView.layer.cornerRadius = 20
@@ -96,10 +96,10 @@ class PhotoViewController: UIViewController {
                 print("list Error\n", error)
           }
           for prefix in result.prefixes {
-            print(prefix)
+//            print(prefix)
           }
           for item in result.items {
-            print(item)
+//            print(item)
             self?.storageItems.append(item)
           }
         }
@@ -115,7 +115,7 @@ class PhotoViewController: UIViewController {
                                            blue: MainColor.blue,
                                            alpha: 1.0)
         } else {
-            likeButton.setImage(UIImage(named: "like")?.withRenderingMode(.alwaysTemplate),
+            likeButton.setImage(UIImage(named: "like_clear")?.withRenderingMode(.alwaysTemplate),
                                 for: .normal)
             likeButton.tintColor = .white
         }

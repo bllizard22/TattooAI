@@ -207,10 +207,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S3c-cH-o3s">
-                                <rect key="frame" x="20" y="136" width="374" height="380"/>
+                                <rect key="frame" x="20" y="246" width="374" height="374"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="380" id="NVX-eq-0Uf"/>
+                                    <constraint firstAttribute="width" secondItem="S3c-cH-o3s" secondAttribute="height" multiplier="1:1" id="xo8-js-UN3"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="74D-B3-UAA" appends="YES" id="Gfu-rh-MLQ"/>
@@ -243,9 +243,8 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gf3-xd-32w">
                                         <rect key="frame" x="185" y="0.0" width="28" height="28"/>
-                                        <color key="tintColor" systemColor="systemBackgroundColor"/>
                                         <state key="normal">
-                                            <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                                            <imageReference key="image" image="like_clear" symbolScale="large"/>
                                         </state>
                                         <connections>
                                             <action selector="likeAction:" destination="lZi-uA-R8M" eventType="touchUpInside" id="xrf-wp-cEy"/>
@@ -262,10 +261,11 @@
                         <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="S3c-cH-o3s" firstAttribute="leading" secondItem="dwc-NA-Jni" secondAttribute="leading" constant="20" id="6xG-AL-z1O"/>
+                            <constraint firstItem="zb3-ew-uZM" firstAttribute="top" secondItem="S3c-cH-o3s" secondAttribute="bottom" constant="120" id="7nN-DY-USG"/>
                             <constraint firstItem="dwc-NA-Jni" firstAttribute="bottom" secondItem="zb3-ew-uZM" secondAttribute="bottom" constant="40" id="FRf-iv-Wjg"/>
                             <constraint firstItem="dwc-NA-Jni" firstAttribute="trailing" secondItem="S3c-cH-o3s" secondAttribute="trailing" constant="20" id="Tao-Ss-siQ"/>
+                            <constraint firstItem="S3c-cH-o3s" firstAttribute="centerY" relation="lessThanOrEqual" secondItem="dwc-NA-Jni" secondAttribute="centerY" constant="50" id="Veg-LC-oNA"/>
                             <constraint firstItem="zb3-ew-uZM" firstAttribute="centerX" secondItem="Kt3-ty-udj" secondAttribute="centerX" id="koY-6o-jXe"/>
-                            <constraint firstItem="S3c-cH-o3s" firstAttribute="top" secondItem="dwc-NA-Jni" secondAttribute="top" constant="80" id="riH-6f-Q1h"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="K4q-KK-zZS">
@@ -337,8 +337,8 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="dice" width="128" height="128"/>
-        <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="like_clear" width="128" height="128"/>
         <image name="list" width="64" height="64"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>

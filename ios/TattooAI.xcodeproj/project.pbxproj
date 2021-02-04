@@ -30,7 +30,7 @@
 		853156E325B58F4100738F95 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8579963725AC7D7A00C9EA93 /* SearchCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewController.swift; sourceTree = "<group>"; };
 		8579963A25AC7D8C00C9EA93 /* LikedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedCollectionViewController.swift; sourceTree = "<group>"; };
-		857C58FC25AACCF6000803F2 /* PhotoTapps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoTapps.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		857C58FC25AACCF6000803F2 /* TattooAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TattooAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		857C58FF25AACCF6000803F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		857C590125AACCF6000803F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		857C590625AACCF6000803F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,7 +68,7 @@
 		857C58F325AACCF6000803F2 = {
 			isa = PBXGroup;
 			children = (
-				857C58FE25AACCF6000803F2 /* PhotoTapps */,
+				857C58FE25AACCF6000803F2 /* TattooAI */,
 				857C58FD25AACCF6000803F2 /* Products */,
 				0CF7EE33B8B5602771759525 /* Pods */,
 				F38B2B295670BC8B9DB4BAA5 /* Frameworks */,
@@ -78,12 +78,12 @@
 		857C58FD25AACCF6000803F2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				857C58FC25AACCF6000803F2 /* PhotoTapps.app */,
+				857C58FC25AACCF6000803F2 /* TattooAI.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		857C58FE25AACCF6000803F2 /* PhotoTapps */ = {
+		857C58FE25AACCF6000803F2 /* TattooAI */ = {
 			isa = PBXGroup;
 			children = (
 				857C58FF25AACCF6000803F2 /* AppDelegate.swift */,
@@ -101,7 +101,7 @@
 				853156E325B58F4100738F95 /* GoogleService-Info.plist */,
 				851AF33525C12B94003ADA5F /* UserData.xcdatamodeld */,
 			);
-			path = PhotoTapps;
+			path = TattooAI;
 			sourceTree = "<group>";
 		};
 		F38B2B295670BC8B9DB4BAA5 /* Frameworks */ = {
@@ -115,9 +115,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		857C58FB25AACCF6000803F2 /* PhotoTapps */ = {
+		857C58FB25AACCF6000803F2 /* TattooAI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 857C591025AACCF7000803F2 /* Build configuration list for PBXNativeTarget "PhotoTapps" */;
+			buildConfigurationList = 857C591025AACCF7000803F2 /* Build configuration list for PBXNativeTarget "TattooAI" */;
 			buildPhases = (
 				BDA05D11DD8C61BD905C6146 /* [CP] Check Pods Manifest.lock */,
 				857C58F825AACCF6000803F2 /* Sources */,
@@ -129,9 +129,9 @@
 			);
 			dependencies = (
 			);
-			name = PhotoTapps;
+			name = TattooAI;
 			productName = PhotoTapps;
-			productReference = 857C58FC25AACCF6000803F2 /* PhotoTapps.app */;
+			productReference = 857C58FC25AACCF6000803F2 /* TattooAI.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -148,7 +148,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 857C58F725AACCF6000803F2 /* Build configuration list for PBXProject "PhotoTapps" */;
+			buildConfigurationList = 857C58F725AACCF6000803F2 /* Build configuration list for PBXProject "TattooAI" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -161,7 +161,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				857C58FB25AACCF6000803F2 /* PhotoTapps */,
+				857C58FB25AACCF6000803F2 /* TattooAI */,
 			);
 		};
 /* End PBXProject section */
@@ -385,16 +385,17 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RTRWQZT32D;
-				INFOPLIST_FILE = PhotoTapps/Info.plist;
+				INFOPLIST_FILE = TattooAI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = no.PhotoApp;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TattooAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -406,23 +407,24 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RTRWQZT32D;
-				INFOPLIST_FILE = PhotoTapps/Info.plist;
+				INFOPLIST_FILE = TattooAI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = no.PhotoApp;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TattooAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		857C58F725AACCF6000803F2 /* Build configuration list for PBXProject "PhotoTapps" */ = {
+		857C58F725AACCF6000803F2 /* Build configuration list for PBXProject "TattooAI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				857C590E25AACCF7000803F2 /* Debug */,
@@ -431,7 +433,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		857C591025AACCF7000803F2 /* Build configuration list for PBXNativeTarget "PhotoTapps" */ = {
+		857C591025AACCF7000803F2 /* Build configuration list for PBXNativeTarget "TattooAI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				857C591125AACCF7000803F2 /* Debug */,
