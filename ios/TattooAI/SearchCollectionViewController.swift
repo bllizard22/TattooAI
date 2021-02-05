@@ -11,8 +11,8 @@ import Kingfisher
 
 class SearchCollectionViewController: UICollectionViewController {
 
-    let paddingWidth: CGFloat = 3
-    let itemsPerRow: CGFloat = 3
+    var paddingWidth: CGFloat = 3
+    var itemsPerRow: CGFloat = 3
     
     var imageLikes: [ImageLike] = []
     
@@ -26,6 +26,8 @@ class SearchCollectionViewController: UICollectionViewController {
     var storageSize: String = ""
     var storageItems: [FirebaseStorage.StorageReference] = []
     
+    @IBOutlet weak var collectionControl: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,19 +35,7 @@ class SearchCollectionViewController: UICollectionViewController {
         
         
         // Count size of item based on screen size
-        let paddingTotalWidth = paddingWidth * (itemsPerRow + 1)
-        let itemWidth = CGFloat(Int( (collectionView.frame.width - paddingTotalWidth) / itemsPerRow ))
-        
-        // Set layout parameters
-        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.sectionInset = UIEdgeInsets(top: paddingWidth
-                                           , left: paddingWidth
-                                           , bottom: paddingWidth
-                                           , right: paddingWidth)
-        layout.minimumLineSpacing = paddingWidth
-        layout.minimumInteritemSpacing = paddingWidth
-        layout.estimatedItemSize = CGSize(width: 0, height: 0)
-        layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
+        calculateCollection()
         
         // Turn off scroll indicator
         collectionView.showsVerticalScrollIndicator = false
@@ -134,6 +124,24 @@ class SearchCollectionViewController: UICollectionViewController {
             photoVC.imageSegueURL = cell.imageURL
         }
     }
+    
+    func calculateCollection() {
+        let paddingTotalWidth = paddingWidth * (itemsPerRow + 1)
+//        print(itemsPerRow, paddingTotalWidth, "\n")
+//        let itemWidth = CGFloat(Int( (collectionView.frame.width - paddingTotalWidth) / itemsPerRow ))
+        let itemWidth = CGFloat((collectionView.frame.width - paddingTotalWidth) / itemsPerRow )
+        
+        // Set layout parameters
+        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.sectionInset = UIEdgeInsets(top: paddingWidth
+                                           , left: paddingWidth
+                                           , bottom: paddingWidth
+                                           , right: paddingWidth)
+        layout.minimumLineSpacing = paddingWidth
+        layout.minimumInteritemSpacing = paddingWidth
+        layout.estimatedItemSize = CGSize(width: 0, height: 0)
+        layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
+    }
 
     func loadStorageData() {
         // List all images in Storage
@@ -146,7 +154,7 @@ class SearchCollectionViewController: UICollectionViewController {
             print(prefix)
           }
           for item in result.items {
-            print(item)
+//            print(item)
             self?.storageItems.append(item)
           }
 //            storageItems += String(result.items)
@@ -206,7 +214,7 @@ class SearchCollectionViewController: UICollectionViewController {
                 guard let url = url else { return }
 //                print(url)
 //                print(url.absoluteURL)
-                let newURL = URL(string: "")
+//                let newURL = URL(string: "")
                 self?.imageURL = url
                 cell.imageURL = url
                 let resource = ImageResource(downloadURL: (self?.imageURL)!)
@@ -221,9 +229,28 @@ class SearchCollectionViewController: UICollectionViewController {
                 }
             }
             
+//            cell.cellImageView.clipsToBounds = true
+//            cell.cellImageView.layer.cornerRadius = 20
+            cell.backgroundColor = .black
         }
+        
         
         return cell
     }
-
+    
+    @IBAction func collectionControlAction(_ sender: Any) {
+        switch collectionControl.selectedSegmentIndex {
+        case 0:
+            itemsPerRow = 3
+            paddingWidth = 3
+        case 1:
+            itemsPerRow = 1
+            paddingWidth = 12
+        default:
+            break
+        }
+        calculateCollection()
+        collectionView.reloadData()
+    }
+    
 }

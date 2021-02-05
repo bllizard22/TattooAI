@@ -38,7 +38,6 @@ class PhotoViewController: UIViewController {
     @IBOutlet weak var randomButton: UIButton!
     
     //    @IBOutlet weak var imageScrollView: UIScrollView!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,9 +94,9 @@ class PhotoViewController: UIViewController {
             if let error = error {
                 print("list Error\n", error)
           }
-          for prefix in result.prefixes {
+//          for prefix in result.prefixes {
 //            print(prefix)
-          }
+//          }
           for item in result.items {
 //            print(item)
             self?.storageItems.append(item)

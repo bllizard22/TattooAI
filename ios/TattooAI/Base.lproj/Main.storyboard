@@ -14,7 +14,7 @@
         <!--Gallery-->
         <scene sceneID="Mce-FZ-NuN">
             <objects>
-                <collectionViewController id="nSE-Ua-FzO" userLabel="Gallery" customClass="PhotosCollectionViewController" customModule="PhotoTapps" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="nSE-Ua-FzO" userLabel="Gallery" customClass="PhotosCollectionViewController" customModule="TattooAI" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="aLp-D9-L4t">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,7 +26,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCell" id="9o1-IX-he7" customClass="PhotoCell" customModule="PhotoTapps" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCell" id="9o1-IX-he7" customClass="PhotoCell" customModule="TattooAI" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Gap-5V-orz">
@@ -61,12 +61,12 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t1C-va-Nd1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="133" y="850"/>
+            <point key="canvasLocation" x="-906" y="850"/>
         </scene>
         <!--Search Collection View Controller-->
         <scene sceneID="qlz-d7-SK6">
             <objects>
-                <collectionViewController id="67D-Dm-Gpo" customClass="SearchCollectionViewController" customModule="PhotoTapps" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="67D-Dm-Gpo" customClass="SearchCollectionViewController" customModule="TattooAI" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="qyZ-mS-X6d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -78,7 +78,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="searchCell" id="XJr-PG-6I4" customClass="PhotoCell" customModule="PhotoTapps" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="searchCell" id="XJr-PG-6I4" customClass="PhotoCell" customModule="TattooAI" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dRx-PO-W83">
@@ -107,20 +107,33 @@
                             <outlet property="delegate" destination="67D-Dm-Gpo" id="yPl-SA-7Oy"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="" id="Pdr-KX-SVf">
-                        <imageReference key="image" image="magnifyingglass" catalog="system" renderingMode="template"/>
-                        <color key="badgeColor" red="0.3921568627" green="0.70588235290000001" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="0Ki-rq-bDw">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bar" selectedSegmentIndex="0" id="mYS-gW-qO5">
+                            <rect key="frame" x="124.5" y="5.5" width="165" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="" image="collection"/>
+                                <segment title="" image="list"/>
+                            </segments>
+                            <connections>
+                                <action selector="collectionControlAction:" destination="67D-Dm-Gpo" eventType="valueChanged" id="0MR-2M-8mN"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="collectionControl" destination="mYS-gW-qO5" id="KOo-ux-VGq"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3me-8q-R9U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="916" y="850"/>
+            <point key="canvasLocation" x="991" y="850"/>
         </scene>
         <!--Liked Collection View Controller-->
         <scene sceneID="xPY-Db-yJk">
             <objects>
-                <collectionViewController id="4Cm-Ki-1M3" customClass="LikedCollectionViewController" customModule="PhotoTapps" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="4Cm-Ki-1M3" customClass="LikedCollectionViewController" customModule="TattooAI" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="eK3-1K-Lho">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -132,7 +145,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="likedCell" id="ZEa-09-6Nj" customClass="PhotoCell" customModule="PhotoTapps" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="likedCell" id="ZEa-09-6Nj" customClass="PhotoCell" customModule="TattooAI" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="uJg-KR-NiA">
@@ -165,12 +178,12 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l5H-I6-sY5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1758" y="850"/>
+            <point key="canvasLocation" x="2668.1159420289855" y="849.77678571428567"/>
         </scene>
         <!--Test View Controller-->
         <scene sceneID="An6-Xg-wfI">
             <objects>
-                <viewController id="5Hu-HR-ucg" customClass="TestViewController" customModule="PhotoTapps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5Hu-HR-ucg" customClass="TestViewController" customModule="TattooAI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DYQ-dX-2fc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -196,12 +209,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WwN-Dy-Ltg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2669.5652173913045" y="849.77678571428567"/>
+            <point key="canvasLocation" x="3579.7101449275365" y="849.77678571428567"/>
         </scene>
         <!--Photo View Controller-->
         <scene sceneID="eNH-Nt-GMj">
             <objects>
-                <viewController id="lZi-uA-R8M" customClass="PhotoViewController" customModule="PhotoTapps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lZi-uA-R8M" customClass="PhotoViewController" customModule="TattooAI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kt3-ty-udj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -300,10 +313,11 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="SXF-pa-FSa">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" red="0.39215686274509803" green="0.70588235294117641" blue="0.62745098039215685" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
-                        <segue destination="67D-Dm-Gpo" kind="relationship" relationship="viewControllers" id="kLo-2W-uOs"/>
+                        <segue destination="SZa-fC-9Bk" kind="relationship" relationship="viewControllers" id="kLo-2W-uOs"/>
                         <segue destination="4Cm-Ki-1M3" kind="relationship" relationship="viewControllers" id="b2W-u9-pRK"/>
                     </connections>
                 </tabBarController>
@@ -331,11 +345,32 @@
             </objects>
             <point key="canvasLocation" x="915.94202898550736" y="1585.7142857142856"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1nQ-f4-2uj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SZa-fC-9Bk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="magnifyingglass" catalog="system" id="Pdr-KX-SVf"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vDL-uF-idf">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="67D-Dm-Gpo" kind="relationship" relationship="rootViewController" id="BSB-GM-ryJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z30-B7-fhM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="155" y="850"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="4cq-9R-SqS"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="collection" width="64" height="64"/>
         <image name="dice" width="128" height="128"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="like_clear" width="128" height="128"/>

@@ -88,7 +88,6 @@
 			children = (
 				857C58FF25AACCF6000803F2 /* AppDelegate.swift */,
 				857C590125AACCF6000803F2 /* SceneDelegate.swift */,
-				857C591625AACDA7000803F2 /* PhotosCollectionViewController.swift */,
 				8579963725AC7D7A00C9EA93 /* SearchCollectionViewController.swift */,
 				8579963A25AC7D8C00C9EA93 /* LikedCollectionViewController.swift */,
 				857C593425AAEB71000803F2 /* PhotoViewController.swift */,
@@ -100,6 +99,7 @@
 				857C590D25AACCF7000803F2 /* Info.plist */,
 				853156E325B58F4100738F95 /* GoogleService-Info.plist */,
 				851AF33525C12B94003ADA5F /* UserData.xcdatamodeld */,
+				857C591625AACDA7000803F2 /* PhotosCollectionViewController.swift */,
 			);
 			path = TattooAI;
 			sourceTree = "<group>";
