@@ -148,7 +148,8 @@ class SearchCollectionViewController: UICollectionViewController {
         let storageRef = storage.reference().child("images")
         storageRef.listAll { [weak self] (result, error) in
             if let error = error {
-                print("list Error\n", error)
+//                print("list Error\n", error)
+                self?.displayError(message: error.localizedDescription)
           }
           for prefix in result.prefixes {
             print(prefix)
@@ -160,8 +161,18 @@ class SearchCollectionViewController: UICollectionViewController {
 //            storageItems += String(result.items)
             self?.storageSize = String(result.items.count)
             print(self!.storageSize)
+            self?.displayError(message: self!.storageSize)
             self?.collectionView.reloadData()
         }
+    }
+    
+    func displayError(message: String) {
+        let alertView = UIAlertController(title: "Oops!", message: message, preferredStyle: .alert)
+        
+        let doneAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alertView.addAction(doneAction)
+        self.present(alertView, animated: true, completion: nil)
     }
     
     // MARK: UICollectionViewDataSource
