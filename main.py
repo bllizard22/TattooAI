@@ -39,13 +39,18 @@ if __name__ == "__main__":
     try:
         # Upload
         bucket = storage.bucket()
-        blob = bucket.blob(os.path.basename(r'C:\Users\n.kruchkov\Desktop\Python\TattooAI'))
-        blob.upload_from_filename("test0.txt")
-        # # blob.upload_from_string("hello world")
-        #
+        # blob = bucket.blob(os.path.basename(r'C:\Users\n.kruchkov\Desktop\Python\TattooAI\test.txt'))
+        # blob.upload_from_filename("test0.txt")
+        # blob.download_to_filename("test1.txt")
+
+        # blob = bucket.blob(os.path.basename('icon_v1.1.png'))
+        blob = bucket.blob(os.path.basename('0.png'))
+        blob.upload_from_filename('new/icon_v1.1.png')
+        blob.download_to_filename('new/icon_v0.png')
+
         # # Upload from file
         # blob.upload_from_filename("test0.txt")
-    # except:
-    #     pass
+    except FileNotFoundError as e:
+        print(e)
     finally:
         print("End")
