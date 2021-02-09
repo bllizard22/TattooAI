@@ -161,7 +161,7 @@ class SearchCollectionViewController: UICollectionViewController {
 //            storageItems += String(result.items)
             self?.storageSize = String(result.items.count)
             print(self!.storageSize)
-            self?.displayError(message: self!.storageSize)
+//            self?.displayError(message: self!.storageSize)
             self?.collectionView.reloadData()
         }
     }
