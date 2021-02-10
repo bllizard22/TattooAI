@@ -9,12 +9,21 @@ import UIKit
 
 class GeneratorViewController: UIViewController {
 
+    @IBOutlet weak var colorLabel: UILabel!
+    @IBOutlet weak var placeLabel: UILabel!
+    @IBOutlet weak var styleLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "settings" {
+            
+        }
+    }
 
     /*
     // MARK: - Navigation

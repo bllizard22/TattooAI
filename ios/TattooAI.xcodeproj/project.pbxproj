@@ -100,7 +100,6 @@
 				8579963A25AC7D8C00C9EA93 /* LikedCollectionViewController.swift */,
 				857C593425AAEB71000803F2 /* PhotoViewController.swift */,
 				857C591A25AAD00F000803F2 /* PhotoCell.swift */,
-				85A91F5C25B826DD00000BF9 /* TestViewController.swift */,
 				85794F2325D24E0E00AA1078 /* GeneratorViewController.swift */,
 				85794F2725D250D700AA1078 /* LabelButton.swift */,
 				858F1E0F25D0310D00C3EF3A /* CustomButton.swift */,
@@ -111,6 +110,7 @@
 				857C590D25AACCF7000803F2 /* Info.plist */,
 				853156E325B58F4100738F95 /* GoogleService-Info.plist */,
 				851AF33525C12B94003ADA5F /* UserData.xcdatamodeld */,
+				85A91F5C25B826DD00000BF9 /* TestViewController.swift */,
 				857C591625AACDA7000803F2 /* PhotosCollectionViewController.swift */,
 			);
 			path = TattooAI;
