@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launcher" translatesAutoresizingMaskIntoConstraints="NO" id="Iql-Rb-rZH">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_v1.2" translatesAutoresizingMaskIntoConstraints="NO" id="Iql-Rb-rZH">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TattooAI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAP-zk-YYt">
@@ -32,9 +32,9 @@
                         <constraints>
                             <constraint firstItem="KAP-zk-YYt" firstAttribute="centerX" secondItem="Iql-Rb-rZH" secondAttribute="centerX" id="2q1-HZ-lMO"/>
                             <constraint firstItem="Iql-Rb-rZH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5pr-DQ-xtD"/>
-                            <constraint firstItem="Iql-Rb-rZH" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="8qQ-9n-Ved"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="Iql-Rb-rZH" secondAttribute="top" constant="44" id="TFG-A3-AcG"/>
-                            <constraint firstItem="Iql-Rb-rZH" firstAttribute="top" secondItem="KAP-zk-YYt" secondAttribute="bottom" constant="-180" id="deT-Xz-eY0"/>
+                            <constraint firstItem="Iql-Rb-rZH" firstAttribute="bottom" secondItem="Ze5-6b-2t3" secondAttribute="bottom" id="8qQ-9n-Ved"/>
+                            <constraint firstAttribute="top" secondItem="Iql-Rb-rZH" secondAttribute="top" id="TFG-A3-AcG"/>
+                            <constraint firstAttribute="top" secondItem="KAP-zk-YYt" secondAttribute="bottom" constant="-180" id="deT-Xz-eY0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Iql-Rb-rZH" secondAttribute="trailing" id="neK-qP-E1g"/>
                         </constraints>
                     </view>
@@ -45,7 +45,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launcher" width="720" height="1280"/>
+        <image name="launch_v1.2" width="4688" height="8334"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

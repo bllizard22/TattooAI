@@ -7,9 +7,9 @@
 
 import UIKit
 
-let colorArray = ["Any", "Grayscale", "Red", "Cyan", "Colorful"]
-let placeArray = ["Any", "Arm", "Body", "Leg"]
-let styleArray = ["Any", "Old School", "Oriental", "Portrait", "Blackwork", "Biomech", "Geometric"]
+let colorArray = [0: "Any", 1: "Grayscale", 2: "Red", 3: "Cyan", 4: "Colorful"]
+let placeArray = [0: "Any", 1: "Arm", 2: "Body", 3: "Leg"]
+let styleArray = [0: "Any", 1: "Old School", 2: "Oriental", 3: "Portrait", 4: "Blackwork", 5: "Biomech", 6: "Geometric"]
 let commonArray = [colorArray, placeArray, styleArray]
 
 let tableHeaders = ["Color", "Place", "Style"]

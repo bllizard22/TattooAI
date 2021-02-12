@@ -57,7 +57,7 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="0Ki-rq-bDw">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bar" selectedSegmentIndex="0" id="mYS-gW-qO5">
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" id="mYS-gW-qO5">
                             <rect key="frame" x="124.5" y="5.5" width="165" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
@@ -76,7 +76,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3me-8q-R9U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-226" y="850"/>
+            <point key="canvasLocation" x="-226.08695652173915" y="849.77678571428567"/>
         </scene>
         <!--Liked Collection View Controller-->
         <scene sceneID="xPY-Db-yJk">
@@ -145,7 +145,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lno-kd-3eR"/>
-                        <color key="backgroundColor" red="0.3921568627" green="0.70588235290000001" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.47058823529999999" green="0.70588235290000001" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="2r4-Ue-1nw" firstAttribute="centerY" secondItem="lno-kd-3eR" secondAttribute="centerY" id="jPh-jy-9eu"/>
                             <constraint firstItem="2r4-Ue-1nw" firstAttribute="centerX" secondItem="lno-kd-3eR" secondAttribute="centerX" id="jkL-wZ-Y7z"/>
@@ -313,6 +313,7 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Any" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMX-Qi-HAw">
                                                 <rect key="frame" x="0.0" y="0.0" width="38.5" height="26.5"/>
+                                                <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                                 <color key="textColor" systemColor="systemGray4Color"/>
                                                 <nil key="highlightedColor"/>
@@ -378,7 +379,14 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <color key="tintColor" red="0.3921568627" green="0.70588235290000001" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" image="like_clear"/>
+                                <state key="normal" image="heart_green"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLl-PP-c3B">
+                                <rect key="frame" x="190" y="715" width="64" height="30"/>
+                                <state key="normal" title="Generate"/>
+                                <connections>
+                                    <action selector="generateImage:" destination="yae-1b-XPy" eventType="touchUpInside" id="EY2-xp-tar"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Yyw-1e-cHc"/>
@@ -390,8 +398,10 @@
                             <constraint firstItem="oAV-F4-GLF" firstAttribute="trailing" secondItem="hvG-97-4xl" secondAttribute="trailing" constant="-15" id="Laa-Ht-bXC"/>
                             <constraint firstItem="Yyw-1e-cHc" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="RdA-rf-y4g" secondAttribute="bottom" constant="30" id="PJR-EV-KFM"/>
                             <constraint firstItem="hvG-97-4xl" firstAttribute="leading" secondItem="Yyw-1e-cHc" secondAttribute="leading" constant="50" id="UPU-Qg-pXC"/>
+                            <constraint firstItem="FLl-PP-c3B" firstAttribute="top" secondItem="bhL-91-G4N" secondAttribute="bottom" constant="25.5" id="Zce-KT-FDa"/>
                             <constraint firstItem="hvG-97-4xl" firstAttribute="centerX" secondItem="Yyw-1e-cHc" secondAttribute="centerX" id="bN5-W9-xol"/>
                             <constraint firstItem="RdA-rf-y4g" firstAttribute="centerX" secondItem="Yyw-1e-cHc" secondAttribute="centerX" id="gHf-HZ-GxS"/>
+                            <constraint firstItem="FLl-PP-c3B" firstAttribute="centerX" secondItem="bhL-91-G4N" secondAttribute="centerX" id="jLs-o1-jjx"/>
                             <constraint firstItem="oAV-F4-GLF" firstAttribute="bottom" secondItem="hvG-97-4xl" secondAttribute="bottom" constant="-15" id="sez-Zm-CpV"/>
                             <constraint firstItem="0Bo-Ac-a2x" firstAttribute="leading" secondItem="RdA-rf-y4g" secondAttribute="leading" id="u6k-7T-5HD"/>
                         </constraints>
@@ -400,13 +410,13 @@
                         <imageReference key="image" image="wand.and.stars" catalog="system" symbolScale="default"/>
                     </tabBarItem>
                     <connections>
-                        <outlet property="colorLabel" destination="9uL-dh-3gt" id="ibt-4g-hU4"/>
+                        <outlet property="colorLabel" destination="sMX-Qi-HAw" id="eLe-Cz-YKc"/>
                         <outlet property="generateButton" destination="bhL-91-G4N" id="sTw-7W-Vnr"/>
                         <outlet property="imageView" destination="hvG-97-4xl" id="asL-K2-bvL"/>
                         <outlet property="likeButton" destination="oAV-F4-GLF" id="mwo-eK-aA8"/>
-                        <outlet property="placeLabel" destination="mqm-lK-bWn" id="cTe-rg-iz3"/>
+                        <outlet property="placeLabel" destination="9uL-dh-3gt" id="tgp-qZ-8a4"/>
                         <outlet property="settingsButton" destination="Q6N-Cb-SK7" id="gcR-eG-D5t"/>
-                        <outlet property="styleLabel" destination="sMX-Qi-HAw" id="Uxh-gC-Qzj"/>
+                        <outlet property="styleLabel" destination="mqm-lK-bWn" id="0vv-wD-boL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fBz-ls-uOO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -521,6 +531,7 @@
         <image name="collection" width="64" height="64"/>
         <image name="dice" width="128" height="128"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="heart_green" width="512" height="512"/>
         <image name="like_clear" width="128" height="128"/>
         <image name="list" width="64" height="64"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
