@@ -91,9 +91,9 @@ class GeneratorViewController: UIViewController {
         }
         
         if segue.identifier == "pickImageSegue4" {
-            guard imageURL!.absoluteString == " " else {
-                return
-            }
+//            guard imageURL!.absoluteString == " " else {
+//                return
+//            }
             let navVC = segue.destination as! UINavigationController
             let photoVC = navVC.viewControllers.first as! PhotoViewController
 //            let image = sender as! UIImageView
