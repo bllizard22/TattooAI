@@ -19,7 +19,7 @@ class GeneratorViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
-    @IBOutlet weak var generateButton: UILabel!
+    @IBOutlet weak var generateButton: UIButton!
     
 //    var settings = ["colorArray": 0, "placeArray": 0, "styleArray": 0]
     var imageLikes: [ImageLike] = []
@@ -27,7 +27,7 @@ class GeneratorViewController: UIViewController {
     let storage = Storage.storage(url:"gs://firephotos-40d70.appspot.com")
     var storageItems: [FirebaseStorage.StorageReference] = []
     var imageURL = URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1920px-Apple_logo_black.svg.png")
-    var imageSegueURL: URL?
+//    var imageSegueURL: URL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,10 +39,10 @@ class GeneratorViewController: UIViewController {
         loadStorageData()
         loadCoreData()
         
-        let tap = UITapGestureRecognizer(target: self,
-                                         action: #selector(GeneratorViewController.labelTap))
-        colorLabel.isUserInteractionEnabled = true
-        colorLabel.addGestureRecognizer(tap)
+//        let tap = UITapGestureRecognizer(target: self,
+//                                         action: #selector(GeneratorViewController.labelTap))
+//        colorLabel.isUserInteractionEnabled = true
+//        colorLabel.addGestureRecognizer(tap)
 
         imageView.layer.cornerRadius = 10
 //        imageView.image = UIImage(named: "70")
@@ -80,6 +80,8 @@ class GeneratorViewController: UIViewController {
         settingsButton.layer.cornerRadius = 10
         generateButton.layer.masksToBounds = true
         generateButton.layer.cornerRadius = 10
+        
+        checkLike()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -97,40 +99,47 @@ class GeneratorViewController: UIViewController {
         }
     }
     
-//    override func performSegue(withIdentifier identifier: String, sender: Any?) {
-//        if identifier == "pickImageSegue4" {
-//            let navVC = destination as! UINavigationController
-//            let photoVC = navVC.viewControllers.first as! PhotoViewController
-//            let cell = sender as! PhotoCell
-////            photoVC.image = cell.cellImageView.image
-////            photoVC.imageID = cell.imageID
-//            photoVC.imageSegueURL = cell.imageURL
-//        }
-//    }
-    
     @IBAction func generateImage(_ sender: Any) {
         generateRandomImage()
-        print(imageURL)
     }
     
-    @IBAction func labelTap(sender: UITapGestureRecognizer) {
-//            print("tap working")
-        
-        displayError(message: "new")
+    @IBAction func likeAction(_ sender: Any) {
+        if imageLikes.first(where: { $0.imageURL == imageURL?.absoluteString}) != nil {
+            deleteString(withString: imageURL!.absoluteString)
+            likeButton.setImage(UIImage(named: "heart_white")?.withRenderingMode(.alwaysTemplate),
+                                for: .normal)
+            likeButton.tintColor = .white
+        } else {
+            saveString(withString: imageURL!.absoluteString)
+            likeButton.setImage(UIImage(named: "heart_green")?.withRenderingMode(.alwaysTemplate),
+                                for: .normal)
+            likeButton.tintColor = UIColor(red: MainColor.red,
+                                           green: MainColor.green,
+                                           blue: MainColor.blue,
+                                           alpha: 1)
         }
-    
-    func displayError(message: String) {
-        let alertView = UIAlertController(title: "Oops!", message: "message", preferredStyle: .actionSheet)
-        
-//        let doneAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        for item in colorArray {
-            let colorAction = UIAlertAction(title: item.value, style: .default, handler: nil)
-            alertView.addAction(colorAction)
-        }
-        
-        
-        self.present(alertView, animated: true, completion: nil)
+        loadCoreData()
     }
+    
+    
+//    @IBAction func labelTap(sender: UITapGestureRecognizer) {
+////            print("tap working")
+//
+//        displayError(message: "new")
+//        }
+    
+//    func displayError(message: String) {
+//        let alertView = UIAlertController(title: "Oops!", message: "message", preferredStyle: .actionSheet)
+//
+////        let doneAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+//        for item in colorArray {
+//            let colorAction = UIAlertAction(title: item.value, style: .default, handler: nil)
+//            alertView.addAction(colorAction)
+//        }
+//
+//
+//        self.present(alertView, animated: true, completion: nil)
+//    }
     
     func loadStorageData() {
         // List all images in Storage
@@ -146,6 +155,49 @@ class GeneratorViewController: UIViewController {
 //            print(item)
             self?.storageItems.append(item)
           }
+        }
+    }
+    
+    // Add new record in CoreData
+    private func saveString(withString title: String) {
+        let context = getContext()
+         
+        guard let entity = NSEntityDescription.entity(forEntityName: "ImageLike", in: context) else {return}
+        
+        // Create new task
+        let taskObject = ImageLike(entity: entity, insertInto: context)
+        taskObject.imageURL = title
+        
+        // Save new task in memory at 0 position
+        do {
+            try context.save()
+        } catch let error as NSError  {
+            print(error.localizedDescription)
+        }
+    }
+    
+    // Add new record in CoreData
+    private func deleteString(withString title: String) {
+        let context = getContext()
+        
+        let fetchRequest: NSFetchRequest<ImageLike> = ImageLike.fetchRequest()
+        if let result = try? context.fetch(fetchRequest) {
+            for image in result {
+                if image.imageURL == imageURL?.absoluteString {
+                    context.delete(image)
+                    guard let index = imageLikes.firstIndex(where: {$0.imageURL == imageURL?.absoluteString}) else {return}
+                    imageLikes.remove(at: index)
+                }
+            }
+        }
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.saveContext()
+        
+        do {
+            try context.save()
+        } catch let error as NSError  {
+            print(error.localizedDescription)
         }
     }
     
@@ -168,14 +220,17 @@ class GeneratorViewController: UIViewController {
         
         do {
             try imageLikes = context.fetch(fetchRequest)
+//            print(imageLikes, "likes")
+//            print("[2] in imageLikes\n", imageLikes[2].imageURL)
         } catch let error as NSError {
             print(error.localizedDescription)
         }
     }
     
     func checkLike() {
-        if imageLikes.first(where: { $0.imageURL == imageSegueURL?.absoluteString}) != nil {
-            likeButton.setImage(UIImage(named: "heart_green")?.withRenderingMode(.alwaysTemplate),
+//        print(imageLikes, "likes")
+        if imageLikes.first(where: { $0.imageURL == imageURL?.absoluteString}) != nil {
+            likeButton.setImage(UIImage(named: "heart_white")?.withRenderingMode(.alwaysTemplate),
                                 for: .normal)
             
             likeButton.tintColor = UIColor(red: MainColor.red,
@@ -191,7 +246,7 @@ class GeneratorViewController: UIViewController {
     
     func generateRandomImage() {
         guard let randomItem = storageItems.randomElement() else {return}
-        print(randomItem)
+//        print(randomItem)
         
         randomItem.downloadURL { [weak self] (url, error) in
             if let error = error {

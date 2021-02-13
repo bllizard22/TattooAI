@@ -283,7 +283,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="0Bo-Ac-a2x">
-                                <rect key="frame" x="102" y="94" width="138" height="139.5"/>
+                                <rect key="frame" x="101.5" y="94" width="138" height="139.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="mHW-pT-I85">
                                         <rect key="frame" x="0.0" y="0.0" width="59.5" height="139.5"/>
@@ -308,7 +308,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="vZl-dj-Afd">
+                                    <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="vZl-dj-Afd">
                                         <rect key="frame" x="99.5" y="0.0" width="38.5" height="139.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Any" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMX-Qi-HAw">
@@ -346,7 +346,7 @@
                                 </connections>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="RdA-rf-y4g">
-                                <rect key="frame" x="102" y="639.5" width="210" height="50"/>
+                                <rect key="frame" x="101.5" y="653.5" width="211" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6N-Cb-SK7">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -360,16 +360,21 @@
                                             <segue destination="tGC-nL-zKA" kind="show" identifier="settings" id="GBe-6o-SMz"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Generate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhL-91-G4N">
-                                        <rect key="frame" x="62" y="0.0" width="148" height="50"/>
-                                        <color key="backgroundColor" systemColor="systemGray2Color"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="zfG-Fs-wIu"/>
-                                        </constraints>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLl-PP-c3B">
+                                        <rect key="frame" x="62" y="0.0" width="149" height="50"/>
+                                        <color key="backgroundColor" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <state key="normal" title="Generate">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="generateImage:" destination="yae-1b-XPy" eventType="touchUpInside" id="EY2-xp-tar"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ZbR-mF-jSo"/>
+                                </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAV-F4-GLF">
                                 <rect key="frame" x="319" y="548.5" width="30" height="30"/>
@@ -380,12 +385,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <color key="tintColor" red="0.3921568627" green="0.70588235290000001" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" image="heart_green"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLl-PP-c3B">
-                                <rect key="frame" x="190" y="715" width="64" height="30"/>
-                                <state key="normal" title="Generate"/>
                                 <connections>
-                                    <action selector="generateImage:" destination="yae-1b-XPy" eventType="touchUpInside" id="EY2-xp-tar"/>
+                                    <action selector="likeAction:" destination="yae-1b-XPy" eventType="touchUpInside" id="vHq-ps-ThI"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -394,14 +395,12 @@
                         <constraints>
                             <constraint firstItem="0Bo-Ac-a2x" firstAttribute="top" secondItem="Yyw-1e-cHc" secondAttribute="top" constant="50" id="Czx-XU-KxZ"/>
                             <constraint firstItem="hvG-97-4xl" firstAttribute="top" secondItem="0Bo-Ac-a2x" secondAttribute="bottom" priority="750" constant="46" id="EYX-fb-hQY"/>
-                            <constraint firstItem="RdA-rf-y4g" firstAttribute="top" secondItem="hvG-97-4xl" secondAttribute="bottom" constant="46" id="KLJ-Xu-wOE"/>
+                            <constraint firstItem="RdA-rf-y4g" firstAttribute="top" secondItem="hvG-97-4xl" secondAttribute="bottom" constant="60" id="KLJ-Xu-wOE"/>
                             <constraint firstItem="oAV-F4-GLF" firstAttribute="trailing" secondItem="hvG-97-4xl" secondAttribute="trailing" constant="-15" id="Laa-Ht-bXC"/>
                             <constraint firstItem="Yyw-1e-cHc" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="RdA-rf-y4g" secondAttribute="bottom" constant="30" id="PJR-EV-KFM"/>
                             <constraint firstItem="hvG-97-4xl" firstAttribute="leading" secondItem="Yyw-1e-cHc" secondAttribute="leading" constant="50" id="UPU-Qg-pXC"/>
-                            <constraint firstItem="FLl-PP-c3B" firstAttribute="top" secondItem="bhL-91-G4N" secondAttribute="bottom" constant="25.5" id="Zce-KT-FDa"/>
                             <constraint firstItem="hvG-97-4xl" firstAttribute="centerX" secondItem="Yyw-1e-cHc" secondAttribute="centerX" id="bN5-W9-xol"/>
                             <constraint firstItem="RdA-rf-y4g" firstAttribute="centerX" secondItem="Yyw-1e-cHc" secondAttribute="centerX" id="gHf-HZ-GxS"/>
-                            <constraint firstItem="FLl-PP-c3B" firstAttribute="centerX" secondItem="bhL-91-G4N" secondAttribute="centerX" id="jLs-o1-jjx"/>
                             <constraint firstItem="oAV-F4-GLF" firstAttribute="bottom" secondItem="hvG-97-4xl" secondAttribute="bottom" constant="-15" id="sez-Zm-CpV"/>
                             <constraint firstItem="0Bo-Ac-a2x" firstAttribute="leading" secondItem="RdA-rf-y4g" secondAttribute="leading" id="u6k-7T-5HD"/>
                         </constraints>
@@ -411,7 +410,7 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="colorLabel" destination="sMX-Qi-HAw" id="eLe-Cz-YKc"/>
-                        <outlet property="generateButton" destination="bhL-91-G4N" id="sTw-7W-Vnr"/>
+                        <outlet property="generateButton" destination="FLl-PP-c3B" id="1g3-qo-WQB"/>
                         <outlet property="imageView" destination="hvG-97-4xl" id="asL-K2-bvL"/>
                         <outlet property="likeButton" destination="oAV-F4-GLF" id="mwo-eK-aA8"/>
                         <outlet property="placeLabel" destination="9uL-dh-3gt" id="tgp-qZ-8a4"/>
@@ -428,7 +427,7 @@
             </objects>
             <point key="canvasLocation" x="1886.9565217391305" y="849.77678571428567"/>
         </scene>
-        <!--Settings Table View Controller-->
+        <!--Parameters-->
         <scene sceneID="KSP-J8-see">
             <objects>
                 <tableViewController modalPresentationStyle="fullScreen" interfaceStyle="dark" id="JDd-OK-EPt" customClass="SettingsTableViewController" customModule="TattooAI" customModuleProvider="target" sceneMemberID="viewController">
@@ -451,7 +450,7 @@
                             <outlet property="delegate" destination="JDd-OK-EPt" id="nts-mk-bD1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="83L-9E-v5j">
+                    <navigationItem key="navigationItem" title="Parameters" id="83L-9E-v5j">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="BGA-JP-8ps">
                             <color key="tintColor" red="0.39215686274509803" green="0.70588235294117641" blue="0.62745098039215685" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
@@ -537,11 +536,11 @@
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="wand.and.stars" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

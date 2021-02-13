@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mqE-SJ-UeQ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -17,37 +17,120 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_v1.2" translatesAutoresizingMaskIntoConstraints="NO" id="Iql-Rb-rZH">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <imageView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="70" translatesAutoresizingMaskIntoConstraints="NO" id="Iql-Rb-rZH">
+                                <rect key="frame" x="39" y="285" width="336" height="336"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="336" id="101-EX-3Jb"/>
+                                    <constraint firstAttribute="width" secondItem="Iql-Rb-rZH" secondAttribute="height" multiplier="1:1" id="Eab-oc-7ps"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TattooAI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAP-zk-YYt">
-                                <rect key="frame" x="110.5" y="133" width="193" height="47"/>
-                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="40"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="PeT-eE-hk3">
+                                <rect key="frame" x="108" y="172" width="198" height="49"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tattoo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAP-zk-YYt">
+                                        <rect key="frame" x="0.0" y="0.0" width="145.5" height="49"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="shadowOffset" width="1" height="2"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLm-cm-Z4A">
+                                        <rect key="frame" x="148.5" y="0.0" width="49.5" height="49"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="40"/>
+                                        <color key="textColor" red="0.47058823529999999" green="0.70588235290000001" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" systemColor="systemGrayColor"/>
+                                        <size key="shadowOffset" width="1" height="2"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="KAP-zk-YYt" firstAttribute="centerX" secondItem="Iql-Rb-rZH" secondAttribute="centerX" id="2q1-HZ-lMO"/>
-                            <constraint firstItem="Iql-Rb-rZH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5pr-DQ-xtD"/>
-                            <constraint firstItem="Iql-Rb-rZH" firstAttribute="bottom" secondItem="Ze5-6b-2t3" secondAttribute="bottom" id="8qQ-9n-Ved"/>
-                            <constraint firstAttribute="top" secondItem="Iql-Rb-rZH" secondAttribute="top" id="TFG-A3-AcG"/>
-                            <constraint firstAttribute="top" secondItem="KAP-zk-YYt" secondAttribute="bottom" constant="-180" id="deT-Xz-eY0"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Iql-Rb-rZH" secondAttribute="trailing" id="neK-qP-E1g"/>
+                            <constraint firstItem="PeT-eE-hk3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="128" id="3h5-YT-4hP"/>
+                            <constraint firstItem="PeT-eE-hk3" firstAttribute="centerX" secondItem="Iql-Rb-rZH" secondAttribute="centerX" id="54Y-1w-6gd"/>
+                            <constraint firstItem="Iql-Rb-rZH" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="P9p-QT-9gh"/>
+                            <constraint firstItem="Iql-Rb-rZH" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="TLj-NI-i7V"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52.173913043478265" y="375"/>
+            <point key="canvasLocation" x="-423.1884057971015" y="378.34821428571428"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="CiW-rY-pjW">
+            <objects>
+                <viewController id="mqE-SJ-UeQ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qRZ-F9-FfZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="70" translatesAutoresizingMaskIntoConstraints="NO" id="nGf-pz-UMR">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="contentStretch" x="0.10000000000000001" y="0.0" width="1" height="1"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gSF-cE-rgT">
+                                <rect key="frame" x="87" y="153.5" width="240" height="70"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="EzM-WY-gS4"/>
+                                    <constraint firstAttribute="width" constant="240" id="fwA-yM-sWy"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="UIr-32-G2V">
+                                <rect key="frame" x="108" y="164" width="198" height="49"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tattoo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIf-GH-QRc">
+                                        <rect key="frame" x="0.0" y="0.0" width="145.5" height="49"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="shadowOffset" width="1" height="2"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kbc-vI-FVE">
+                                        <rect key="frame" x="148.5" y="0.0" width="49.5" height="49"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="40"/>
+                                        <color key="textColor" red="0.47058823529999999" green="0.70588235290000001" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" systemColor="systemGrayColor"/>
+                                        <size key="shadowOffset" width="1" height="2"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Tae-OE-jgd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nGf-pz-UMR" firstAttribute="trailing" secondItem="Tae-OE-jgd" secondAttribute="trailing" id="1Ib-aV-xXa"/>
+                            <constraint firstItem="UIr-32-G2V" firstAttribute="centerX" secondItem="Tae-OE-jgd" secondAttribute="centerX" id="B59-EY-l0b"/>
+                            <constraint firstItem="UIr-32-G2V" firstAttribute="top" secondItem="qRZ-F9-FfZ" secondAttribute="top" constant="164" id="MIH-GQ-fkm"/>
+                            <constraint firstItem="nGf-pz-UMR" firstAttribute="top" secondItem="qRZ-F9-FfZ" secondAttribute="top" id="PAa-BT-kod"/>
+                            <constraint firstItem="nGf-pz-UMR" firstAttribute="leading" secondItem="Tae-OE-jgd" secondAttribute="leading" id="fPm-db-8oF"/>
+                            <constraint firstItem="UIr-32-G2V" firstAttribute="centerY" secondItem="gSF-cE-rgT" secondAttribute="centerY" id="lSr-bj-AZE"/>
+                            <constraint firstItem="gSF-cE-rgT" firstAttribute="centerX" secondItem="Tae-OE-jgd" secondAttribute="centerX" id="nri-Ze-MEC"/>
+                            <constraint firstAttribute="bottom" secondItem="nGf-pz-UMR" secondAttribute="bottom" id="sl9-bd-xN2"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Ax-Vh-FjA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="334.78260869565219" y="377.67857142857139"/>
         </scene>
     </scenes>
     <resources>
-        <image name="launch_v1.2" width="4688" height="8334"/>
+        <image name="70" width="768" height="768"/>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -132,7 +132,7 @@ class PhotoViewController: UIViewController {
         
         if imageLikes.first(where: { $0.imageURL == imageSegueURL?.absoluteString}) != nil {
             deleteString(withString: imageSegueURL!.absoluteString)
-            likeButton.setImage(UIImage(named: "like")?.withRenderingMode(.alwaysTemplate),
+            likeButton.setImage(UIImage(named: "like_clear")?.withRenderingMode(.alwaysTemplate),
                                 for: .normal)
             likeButton.tintColor = .white
         } else {
@@ -207,6 +207,8 @@ class PhotoViewController: UIViewController {
         
         do {
             try imageLikes = context.fetch(fetchRequest)
+//            print(imageLikes, "likes")
+//            print(imageLikes[2].imageURL)
         } catch let error as NSError {
             print(error.localizedDescription)
         }

@@ -56,7 +56,7 @@ class SearchCollectionViewController: UICollectionViewController {
 //                self?.imageView.image = image
 //            }
 //        }
-        
+//
 //        // List all images in Storage
 //        storageRef.listAll { [weak self] (result, error) in
 //            if let error = error {
@@ -73,7 +73,7 @@ class SearchCollectionViewController: UICollectionViewController {
 //            self?.storageSize = String(result.items.count)
 //            print(self!.storageSize)
 //        }
-        
+//
 //        let imageRef = storageRef.child("1.jpg")
 //        imageRef.downloadURL { [weak self] (url, error) in
 //            guard let url = url else { return }
