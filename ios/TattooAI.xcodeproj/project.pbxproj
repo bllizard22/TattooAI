@@ -10,8 +10,6 @@
 		77F923792418852E946EF238 /* Pods_PhotoTapps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B425D64ABE92482C3C71DF54 /* Pods_PhotoTapps.framework */; };
 		851AF33725C12B94003ADA5F /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 851AF33525C12B94003ADA5F /* UserData.xcdatamodeld */; };
 		853156E425B58F4100738F95 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 853156E325B58F4100738F95 /* GoogleService-Info.plist */; };
-		855A7E3025D7B83C00400DBF /* launch_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 855A7E2E25D7B83C00400DBF /* launch_v2.png */; };
-		855A7E3125D7B83C00400DBF /* launch_v3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 855A7E2F25D7B83C00400DBF /* launch_v3.jpg */; };
 		85794F2425D24E0E00AA1078 /* GeneratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85794F2325D24E0E00AA1078 /* GeneratorViewController.swift */; };
 		85794F2825D250D700AA1078 /* LabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85794F2725D250D700AA1078 /* LabelButton.swift */; };
 		85794F2C25D2547B00AA1078 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85794F2B25D2547B00AA1078 /* SettingsTableViewController.swift */; };
@@ -34,8 +32,6 @@
 		31C13794262628A9BD7A7B0F /* Pods-PhotoTapps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoTapps.debug.xcconfig"; path = "Target Support Files/Pods-PhotoTapps/Pods-PhotoTapps.debug.xcconfig"; sourceTree = "<group>"; };
 		851AF33625C12B94003ADA5F /* UserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserData.xcdatamodel; sourceTree = "<group>"; };
 		853156E325B58F4100738F95 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		855A7E2E25D7B83C00400DBF /* launch_v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_v2.png; sourceTree = "<group>"; };
-		855A7E2F25D7B83C00400DBF /* launch_v3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch_v3.jpg; sourceTree = "<group>"; };
 		85794F2325D24E0E00AA1078 /* GeneratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorViewController.swift; sourceTree = "<group>"; };
 		85794F2725D250D700AA1078 /* LabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelButton.swift; sourceTree = "<group>"; };
 		85794F2B25D2547B00AA1078 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -77,13 +73,49 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		855A7E2D25D7B82500400DBF /* Images */ = {
+		855A7E3325D7C08B00400DBF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				855A7E2E25D7B83C00400DBF /* launch_v2.png */,
-				855A7E2F25D7B83C00400DBF /* launch_v3.jpg */,
+				857C590825AACCF7000803F2 /* Assets.xcassets */,
+				857C58FF25AACCF6000803F2 /* AppDelegate.swift */,
+				857C590125AACCF6000803F2 /* SceneDelegate.swift */,
+				857C590525AACCF6000803F2 /* Main.storyboard */,
+				857C590A25AACCF7000803F2 /* LaunchScreen.storyboard */,
+				853156E325B58F4100738F95 /* GoogleService-Info.plist */,
+				851AF33525C12B94003ADA5F /* UserData.xcdatamodeld */,
 			);
-			path = Images;
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		855A7E3525D7C1B300400DBF /* Test Files */ = {
+			isa = PBXGroup;
+			children = (
+				85794F2725D250D700AA1078 /* LabelButton.swift */,
+				858F1E0F25D0310D00C3EF3A /* CustomButton.swift */,
+				85A91F5C25B826DD00000BF9 /* TestViewController.swift */,
+				857C591625AACDA7000803F2 /* PhotosCollectionViewController.swift */,
+			);
+			path = "Test Files";
+			sourceTree = "<group>";
+		};
+		855A7E3625D7C38700400DBF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				857C591A25AAD00F000803F2 /* PhotoCell.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		855A7E3725D7C38F00400DBF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8579963725AC7D7A00C9EA93 /* SearchCollectionViewController.swift */,
+				8579963A25AC7D8C00C9EA93 /* LikedCollectionViewController.swift */,
+				857C593425AAEB71000803F2 /* PhotoViewController.swift */,
+				85794F2325D24E0E00AA1078 /* GeneratorViewController.swift */,
+				85794F2B25D2547B00AA1078 /* SettingsTableViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		857C58F325AACCF6000803F2 = {
@@ -107,25 +139,11 @@
 		857C58FE25AACCF6000803F2 /* TattooAI */ = {
 			isa = PBXGroup;
 			children = (
-				855A7E2D25D7B82500400DBF /* Images */,
-				857C58FF25AACCF6000803F2 /* AppDelegate.swift */,
-				857C590125AACCF6000803F2 /* SceneDelegate.swift */,
-				8579963725AC7D7A00C9EA93 /* SearchCollectionViewController.swift */,
-				8579963A25AC7D8C00C9EA93 /* LikedCollectionViewController.swift */,
-				857C593425AAEB71000803F2 /* PhotoViewController.swift */,
-				857C591A25AAD00F000803F2 /* PhotoCell.swift */,
-				85794F2325D24E0E00AA1078 /* GeneratorViewController.swift */,
-				85794F2B25D2547B00AA1078 /* SettingsTableViewController.swift */,
-				85794F2725D250D700AA1078 /* LabelButton.swift */,
-				858F1E0F25D0310D00C3EF3A /* CustomButton.swift */,
-				857C590525AACCF6000803F2 /* Main.storyboard */,
-				857C590825AACCF7000803F2 /* Assets.xcassets */,
-				857C590A25AACCF7000803F2 /* LaunchScreen.storyboard */,
+				855A7E3725D7C38F00400DBF /* Controllers */,
+				855A7E3625D7C38700400DBF /* Models */,
+				855A7E3325D7C08B00400DBF /* Supporting Files */,
+				855A7E3525D7C1B300400DBF /* Test Files */,
 				857C590D25AACCF7000803F2 /* Info.plist */,
-				853156E325B58F4100738F95 /* GoogleService-Info.plist */,
-				851AF33525C12B94003ADA5F /* UserData.xcdatamodeld */,
-				85A91F5C25B826DD00000BF9 /* TestViewController.swift */,
-				857C591625AACDA7000803F2 /* PhotosCollectionViewController.swift */,
 			);
 			path = TattooAI;
 			sourceTree = "<group>";
@@ -201,8 +219,6 @@
 				857C590925AACCF7000803F2 /* Assets.xcassets in Resources */,
 				853156E425B58F4100738F95 /* GoogleService-Info.plist in Resources */,
 				857C590725AACCF6000803F2 /* Main.storyboard in Resources */,
-				855A7E3025D7B83C00400DBF /* launch_v2.png in Resources */,
-				855A7E3125D7B83C00400DBF /* launch_v3.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

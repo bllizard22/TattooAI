@@ -26,7 +26,8 @@ class GeneratorViewController: UIViewController {
     
     let storage = Storage.storage(url:"gs://firephotos-40d70.appspot.com")
     var storageItems: [FirebaseStorage.StorageReference] = []
-    var imageURL = URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1920px-Apple_logo_black.svg.png")
+    var imageURL = URL(string: " ")
+//    var imageURL = URL(string: "https://firebasestorage.googleapis.com/v0/b/firephotos-40d70.appspot.com/o/70.jpg?alt=media&token=a4f4c0fb-5ebd-4a9c-964e-c0d63c6d9bdc")
 //    var imageSegueURL: URL?
     
     override func viewDidLoad() {
@@ -90,6 +91,9 @@ class GeneratorViewController: UIViewController {
         }
         
         if segue.identifier == "pickImageSegue4" {
+            guard imageURL!.absoluteString == " " else {
+                return
+            }
             let navVC = segue.destination as! UINavigationController
             let photoVC = navVC.viewControllers.first as! PhotoViewController
 //            let image = sender as! UIImageView
