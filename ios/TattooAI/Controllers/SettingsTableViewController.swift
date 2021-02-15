@@ -33,7 +33,7 @@ class SettingsTableViewController: UITableViewController {
         super.viewWillDisappear(animated)
         
         let rootVC = presentingViewController as! UITabBarController
-        print(rootVC.viewControllers?.count)
+//        print(rootVC.viewControllers?.count)
         for vc in rootVC.viewControllers! {
 //            print(type(of: vc))
             if vc.isKind(of: GeneratorViewController.self) {

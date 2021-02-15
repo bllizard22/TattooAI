@@ -32,13 +32,11 @@ class SearchCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         
         overrideUserInterfaceStyle = .dark
-        
+        // Turn off scroll indicator
+        collectionView.showsVerticalScrollIndicator = false
         
         // Count size of item based on screen size
         calculateCollection()
-        
-        // Turn off scroll indicator
-        collectionView.showsVerticalScrollIndicator = false
 
         // Firebase implement
 //        let storageRef = storage.reference().child("images")
@@ -191,8 +189,6 @@ class SearchCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "searchCell", for: indexPath) as! PhotoCell
         
-        cell.backgroundColor = .systemGray5
-        
 //        let imageName = photos[indexPath.item]
 //        let image = UIImage(named: imageName)
 //        cell.cellImageView.image = image
@@ -242,7 +238,7 @@ class SearchCollectionViewController: UICollectionViewController {
             
 //            cell.cellImageView.clipsToBounds = true
 //            cell.cellImageView.layer.cornerRadius = 20
-            cell.backgroundColor = .black
+            cell.backgroundColor = .systemGray5
         }
         
         
@@ -261,7 +257,7 @@ class SearchCollectionViewController: UICollectionViewController {
             break
         }
         calculateCollection()
-        collectionView.reloadData()
+//        collectionView.reloadData()
     }
     
 }

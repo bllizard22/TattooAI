@@ -25,6 +25,7 @@ class PhotoViewController: UIViewController {
     // MARK: Firebase variables
     let storage = Storage.storage(url:"gs://firephotos-40d70.appspot.com")
     var storageItems: [FirebaseStorage.StorageReference] = []
+    var imageNilURL = URL(string: "https://firebasestorage.googleapis.com/v0/b/firephotos-40d70.appspot.com/o/70.jpg?alt=media&token=a4f4c0fb-5ebd-4a9c-964e-c0d63c6d9bdc")
 //    let storageURL = "gs://firephotos-40d70.appspot.com/"
 //    let folderURL = "images/"
 //    var storageRef = Storage.storage(url:"gs://firephotos-40d70.appspot.com").reference().child("images")
@@ -47,6 +48,9 @@ class PhotoViewController: UIViewController {
         
         loadCoreData()
 
+        if imageSegueURL == nil {
+            imageSegueURL = imageNilURL
+        }
         let resource = ImageResource(downloadURL: imageSegueURL!)
         photoImageView.kf.setImage(with: resource) { (result) in
             switch result {

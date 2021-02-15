@@ -79,6 +79,9 @@ class GeneratorViewController: UIViewController {
 //                                       blue: MainColor.blue,
 //                                       alpha: 1.0)
         settingsButton.layer.cornerRadius = 10
+        settingsButton.clipsToBounds = true
+        settingsButton.contentMode = .scaleAspectFit
+//        settingsButton.setImage(UIImage(named: "list"), for: .normal)
         generateButton.layer.masksToBounds = true
         generateButton.layer.cornerRadius = 10
         
@@ -110,12 +113,12 @@ class GeneratorViewController: UIViewController {
     @IBAction func likeAction(_ sender: Any) {
         if imageLikes.first(where: { $0.imageURL == imageURL?.absoluteString}) != nil {
             deleteString(withString: imageURL!.absoluteString)
-            likeButton.setImage(UIImage(named: "heart_white")?.withRenderingMode(.alwaysTemplate),
+            likeButton.setImage(UIImage(named: "like_clear")?.withRenderingMode(.alwaysTemplate),
                                 for: .normal)
             likeButton.tintColor = .white
         } else {
             saveString(withString: imageURL!.absoluteString)
-            likeButton.setImage(UIImage(named: "heart_green")?.withRenderingMode(.alwaysTemplate),
+            likeButton.setImage(UIImage(named: "like_fill")?.withRenderingMode(.alwaysTemplate),
                                 for: .normal)
             likeButton.tintColor = UIColor(red: MainColor.red,
                                            green: MainColor.green,
@@ -234,7 +237,7 @@ class GeneratorViewController: UIViewController {
     func checkLike() {
 //        print(imageLikes, "likes")
         if imageLikes.first(where: { $0.imageURL == imageURL?.absoluteString}) != nil {
-            likeButton.setImage(UIImage(named: "heart_white")?.withRenderingMode(.alwaysTemplate),
+            likeButton.setImage(UIImage(named: "like_fill")?.withRenderingMode(.alwaysTemplate),
                                 for: .normal)
             
             likeButton.tintColor = UIColor(red: MainColor.red,
@@ -242,7 +245,7 @@ class GeneratorViewController: UIViewController {
                                            blue: MainColor.blue,
                                            alpha: 1.0)
         } else {
-            likeButton.setImage(UIImage(named: "heart_white")?.withRenderingMode(.alwaysTemplate),
+            likeButton.setImage(UIImage(named: "like_clear")?.withRenderingMode(.alwaysTemplate),
                                 for: .normal)
             likeButton.tintColor = .white
         }

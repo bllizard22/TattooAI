@@ -12,14 +12,16 @@ import Kingfisher
 
 class LikedCollectionViewController: UICollectionViewController {
 
-    let paddingWidth: CGFloat = 3
-    let itemsPerRow: CGFloat = 3
+    var paddingWidth: CGFloat = 3
+    var itemsPerRow: CGFloat = 3
     
 //    var likedPhotos: [ImageItems] = []
 //    var likedPhotos: [Int: ImageItems] = [:]
     var imageLikes: [ImageLike] = []
     
     let testImageURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1920px-Apple_logo_black.svg.png"
+    
+    @IBOutlet weak var collectionControl: UISegmentedControl!
     
     override func viewWillAppear(_ animated: Bool) {
 //        likedPhotos = obtainLikedImages()
@@ -54,23 +56,26 @@ class LikedCollectionViewController: UICollectionViewController {
         
         overrideUserInterfaceStyle = .dark
         
-        // Count size of item based on screen size
-        let paddingTotalWidth = paddingWidth * (itemsPerRow + 1)
-        let itemWidth = CGFloat(Int( (collectionView.frame.width - paddingTotalWidth) / itemsPerRow ))
-        
-        // Set layout parameters
-        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.sectionInset = UIEdgeInsets(top: paddingWidth
-                                           , left: paddingWidth
-                                           , bottom: paddingWidth
-                                           , right: paddingWidth)
-        layout.minimumLineSpacing = paddingWidth
-        layout.minimumInteritemSpacing = paddingWidth
-        layout.estimatedItemSize = CGSize(width: 0, height: 0)
-        layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
-        
         // Turn off scroll indicator
         collectionView.showsVerticalScrollIndicator = false
+        
+        // Count size of item based on screen size
+        calculateCollection()
+        
+//        // Count size of item based on screen size
+//        let paddingTotalWidth = paddingWidth * (itemsPerRow + 1)
+//        let itemWidth = CGFloat(Int( (collectionView.frame.width - paddingTotalWidth) / itemsPerRow ))
+//
+//        //Set layout parameters
+//        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+//        layout.sectionInset = UIEdgeInsets(top: paddingWidth
+//                                           , left: paddingWidth
+//                                           , bottom: paddingWidth
+//                                           , right: paddingWidth)
+//        layout.minimumLineSpacing = paddingWidth
+//        layout.minimumInteritemSpacing = paddingWidth
+//        layout.estimatedItemSize = CGSize(width: 0, height: 0)
+//        layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
         
     }
     
@@ -84,7 +89,39 @@ class LikedCollectionViewController: UICollectionViewController {
             photoVC.likedVC = self
         }
     }
+    
+    func calculateCollection() {
+        let paddingTotalWidth = paddingWidth * (itemsPerRow + 1)
+//        print(itemsPerRow, paddingTotalWidth, "\n")
+//        let itemWidth = CGFloat(Int( (collectionView.frame.width - paddingTotalWidth) / itemsPerRow ))
+        let itemWidth = CGFloat((collectionView.frame.width - paddingTotalWidth) / itemsPerRow )
+        
+        // Set layout parameters
+        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.sectionInset = UIEdgeInsets(top: paddingWidth
+                                           , left: paddingWidth
+                                           , bottom: paddingWidth
+                                           , right: paddingWidth)
+        layout.minimumLineSpacing = paddingWidth
+        layout.minimumInteritemSpacing = paddingWidth
+        layout.estimatedItemSize = CGSize(width: 0, height: 0)
+        layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
+    }
 
+    @IBAction func collectionControlAction(_ sender: Any) {
+        switch collectionControl.selectedSegmentIndex {
+        case 0:
+            itemsPerRow = 3
+            paddingWidth = 3
+        case 1:
+            itemsPerRow = 1
+            paddingWidth = 12
+        default:
+            break
+        }
+        calculateCollection()
+        collectionView.reloadData()
+    }
 
     // MARK: UICollectionViewDataSource
 
