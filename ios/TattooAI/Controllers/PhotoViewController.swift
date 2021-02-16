@@ -10,11 +10,11 @@ import CoreData
 import Kingfisher
 import Firebase
 
-struct MainColor {
-    static var red: CGFloat = 100/255
-    static var green: CGFloat = 180/255
-    static var blue: CGFloat = 160/255
-}
+//struct MainColor {
+//    static var red: CGFloat = 100/255
+//    static var green: CGFloat = 180/255
+//    static var blue: CGFloat = 160/255
+//}
 
 class PhotoViewController: UIViewController {
 
@@ -113,10 +113,7 @@ class PhotoViewController: UIViewController {
             likeButton.setImage(UIImage(named: "like_fill")?.withRenderingMode(.alwaysTemplate),
                                 for: .normal)
             
-            likeButton.tintColor = UIColor(red: MainColor.red,
-                                           green: MainColor.green,
-                                           blue: MainColor.blue,
-                                           alpha: 1.0)
+            likeButton.tintColor = UIColor(named: "AccentColor")
         } else {
             likeButton.setImage(UIImage(named: "like_clear")?.withRenderingMode(.alwaysTemplate),
                                 for: .normal)
@@ -143,10 +140,7 @@ class PhotoViewController: UIViewController {
             saveString(withString: imageSegueURL!.absoluteString)
             likeButton.setImage(UIImage(named: "like_fill")?.withRenderingMode(.alwaysTemplate),
                                 for: .normal)
-            likeButton.tintColor = UIColor(red: MainColor.red,
-                                           green: MainColor.green,
-                                           blue: MainColor.blue,
-                                           alpha: 1)
+            likeButton.tintColor = UIColor(named: "AccentColor")
         }
         loadCoreData()
     }

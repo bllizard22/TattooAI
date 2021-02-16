@@ -120,10 +120,7 @@ class GeneratorViewController: UIViewController {
             saveString(withString: imageURL!.absoluteString)
             likeButton.setImage(UIImage(named: "like_fill")?.withRenderingMode(.alwaysTemplate),
                                 for: .normal)
-            likeButton.tintColor = UIColor(red: MainColor.red,
-                                           green: MainColor.green,
-                                           blue: MainColor.blue,
-                                           alpha: 1)
+            likeButton.tintColor = UIColor(named: "AccentColor")
         }
         loadCoreData()
     }
@@ -240,10 +237,7 @@ class GeneratorViewController: UIViewController {
             likeButton.setImage(UIImage(named: "like_fill")?.withRenderingMode(.alwaysTemplate),
                                 for: .normal)
             
-            likeButton.tintColor = UIColor(red: MainColor.red,
-                                           green: MainColor.green,
-                                           blue: MainColor.blue,
-                                           alpha: 1.0)
+            likeButton.tintColor = UIColor(named: "AccentColor")
         } else {
             likeButton.setImage(UIImage(named: "like_clear")?.withRenderingMode(.alwaysTemplate),
                                 for: .normal)
