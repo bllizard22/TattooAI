@@ -190,7 +190,7 @@
             <objects>
                 <viewController id="lZi-uA-R8M" customClass="PhotoViewController" customModule="TattooAI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kt3-ty-udj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S3c-cH-o3s">
@@ -472,7 +472,7 @@
             <objects>
                 <viewController id="0Yq-Ns-GeH" customClass="InfoViewController" customModule="TattooAI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qIw-wM-olv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="Etf-EK-d26">
@@ -522,9 +522,13 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jsp-F3-oLK">
                                                 <rect key="frame" x="0.0" y="61" width="57.5" height="20.5"/>
+                                                <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" name="AccentColor"/>
                                                 <nil key="highlightedColor"/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="yjE-Rh-qff" appends="YES" id="7oc-wF-jZU"/>
+                                                </connections>
                                             </label>
                                         </subviews>
                                     </stackView>
@@ -545,9 +549,13 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@bllizard22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZY-QS-PLr">
                                                 <rect key="frame" x="0.0" y="61" width="90" height="20.5"/>
+                                                <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" name="AccentColor"/>
                                                 <nil key="highlightedColor"/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="XhD-V6-GNn" appends="YES" id="H3K-48-ICY"/>
+                                                </connections>
                                             </label>
                                         </subviews>
                                     </stackView>
@@ -605,6 +613,8 @@
                         <action selector="melIGDidPressed:" destination="0Yq-Ns-GeH" id="jWu-e2-luf"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="yjE-Rh-qff"/>
+                <tapGestureRecognizer id="XhD-V6-GNn"/>
             </objects>
             <point key="canvasLocation" x="4656.521739130435" y="-72.321428571428569"/>
         </scene>
