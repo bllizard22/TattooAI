@@ -190,7 +190,7 @@
             <objects>
                 <viewController id="lZi-uA-R8M" customClass="PhotoViewController" customModule="TattooAI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kt3-ty-udj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S3c-cH-o3s">
@@ -472,7 +472,7 @@
             <objects>
                 <viewController id="0Yq-Ns-GeH" customClass="InfoViewController" customModule="TattooAI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qIw-wM-olv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="Etf-EK-d26">
@@ -495,9 +495,13 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@evgenymel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="reO-Si-3Gt">
                                                 <rect key="frame" x="0.0" y="61" width="97.5" height="20.5"/>
+                                                <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" name="AccentColor"/>
                                                 <nil key="highlightedColor"/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="RSC-i2-o8L" appends="YES" id="5fw-BZ-wWL"/>
+                                                </connections>
                                             </label>
                                         </subviews>
                                     </stackView>
@@ -560,13 +564,24 @@
                                 <state key="normal" title="How it works?">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="TQc-g6-Xko" kind="show" id="oN8-ZC-mbh"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="https://www.google.com/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Es7-59-PXk">
+                                <rect key="frame" x="112.5" y="691" width="189.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tFc-XZ-Uui"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Etf-EK-d26" firstAttribute="top" secondItem="tFc-XZ-Uui" secondAttribute="top" constant="60" id="37t-08-KiF"/>
                             <constraint firstItem="htn-s1-fUP" firstAttribute="centerX" secondItem="tFc-XZ-Uui" secondAttribute="centerX" id="5o6-gJ-9yK"/>
+                            <constraint firstItem="Es7-59-PXk" firstAttribute="top" secondItem="htn-s1-fUP" secondAttribute="bottom" constant="60.5" id="FJy-0X-ytD"/>
+                            <constraint firstItem="Es7-59-PXk" firstAttribute="centerX" secondItem="qIw-wM-olv" secondAttribute="centerX" id="FrX-3E-Xek"/>
                             <constraint firstItem="Etf-EK-d26" firstAttribute="leading" secondItem="tFc-XZ-Uui" secondAttribute="leading" constant="20" id="Val-W3-Z1p"/>
                             <constraint firstItem="htn-s1-fUP" firstAttribute="top" secondItem="Etf-EK-d26" secondAttribute="bottom" constant="120" id="WgZ-bJ-ugo"/>
                         </constraints>
@@ -575,14 +590,33 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="HBb-cM-lbx">
                             <color key="tintColor" name="AccentColor"/>
                             <connections>
-                                <action selector="cancelDidPressed:" destination="0Yq-Ns-GeH" id="26P-M8-3JL"/>
+                                <action selector="cancelDidPressed:" destination="0Yq-Ns-GeH" id="fsT-Xj-4Qf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="hiwButton" destination="htn-s1-fUP" id="YdX-3E-duz"/>
+                        <outlet property="melInstagram" destination="reO-Si-3Gt" id="KjY-XB-Hfw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VyC-fq-sVm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="RSC-i2-o8L">
+                    <connections>
+                        <action selector="melIGDidPressed:" destination="0Yq-Ns-GeH" id="jWu-e2-luf"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4656.521739130435" y="-72.321428571428569"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="6lq-zU-CmU">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" modalTransitionStyle="crossDissolve" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="TQc-g6-Xko" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="inQ-fa-L9w"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IAN-15-2lx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5584" y="-72"/>
         </scene>
         <!--Parameters-->
         <scene sceneID="KSP-J8-see">

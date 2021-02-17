@@ -9,14 +9,35 @@ import UIKit
 
 class InfoViewController: UIViewController {
 
+    @IBOutlet weak var hiwButton: UIButton!
+    @IBOutlet weak var melInstagram: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         overrideUserInterfaceStyle = .dark
+        hiwButton.layer.cornerRadius = 10
+        
+        let tapMelIG = UITapGestureRecognizer(target: self, action: #selector(InfoViewController.melIGDidPressed(_:)))
+        melInstagram.isUserInteractionEnabled = true
+        melInstagram.addGestureRecognizer(tapMelIG)
+        let attributedString = NSMutableAttributedString(string: "@evgenymel")
+////        let attributedString = NSMutableAttributedString(string: "mel", attributes:[NSAttributedString.Key.link: URL(string: "http://www.google.com/")!])
+        attributedString.addAttribute(.underlineStyle,
+                                      value: NSUnderlineStyle.single.rawValue,
+                                      range: NSRange(location: 0, length:   attributedString.length))
+        melInstagram.attributedText = attributedString
+    }
+        
+    @IBAction func cancelDidPressed(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func cancelDidPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+    @IBAction func melIGDidPressed(_ sender: UITapGestureRecognizer) {
+        print("tap working")
+        UIApplication.shared.open(URL(string: "https://www.instagram.com/evgenymel/")!,
+                                  options: [:],
+                                  completionHandler: nil)
     }
     
     /*

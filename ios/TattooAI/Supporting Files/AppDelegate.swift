@@ -18,7 +18,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
         FirebaseApp.configure()
         
+        isAppAlreadyLaunchedOnce()
+        
         return true
+    }
+    
+    func isAppAlreadyLaunchedOnce()->Bool{
+        let defaults = UserDefaults()
+
+        if let isAppAlreadyLaunchedOnce = defaults.string(forKey: "isAppAlreadyLaunchedOnce"){
+            print("App already launched")
+            return true
+        }else{
+            defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
+            print("App launched first time")
+            return false
+        }
     }
 
     // MARK: UISceneSession Lifecycle
