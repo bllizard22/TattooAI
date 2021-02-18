@@ -34,8 +34,8 @@ class GeneratorViewController: UIViewController {
         super.viewDidLoad()
         
         colorLabel.text = commonArray[0][0]
-        placeLabel.text = commonArray[1][1]
-        styleLabel.text = commonArray[2][2]
+        placeLabel.text = commonArray[1][0]
+        styleLabel.text = commonArray[2][0]
         
         loadStorageData()
         loadCoreData()
@@ -88,6 +88,14 @@ class GeneratorViewController: UIViewController {
         checkLike()
     }
     
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        
+//        if let pageVC = storyboard?.instantiateViewController(withIdentifier: "PageViewController") as? PageViewController {
+//            present(pageVC, animated: true, completion: nil)
+//        }
+//    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "settings" {
             
@@ -105,6 +113,8 @@ class GeneratorViewController: UIViewController {
             photoVC.imageSegueURL = imageURL
         }
     }
+    
+    // MARK: - IBActions
     
     @IBAction func generateImage(_ sender: Any) {
         generateRandomImage()
@@ -205,7 +215,7 @@ class GeneratorViewController: UIViewController {
         }
     }
     
-    // MARK: CoreData work with context and data
+    // MARK: - CoreData work with context and data
     
     // Get context for app
     private func getContext() -> NSManagedObjectContext {

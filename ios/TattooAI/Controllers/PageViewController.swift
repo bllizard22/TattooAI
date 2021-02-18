@@ -43,8 +43,26 @@ class PageViewController: UIPageViewController {
         contentViewController.emoji = emojiArray[index]
         contentViewController.currentPage = index
         contentViewController.numberOfPages = presentScreenContent.count
+        contentViewController.isHidden = true
+        
+        if index == (presentScreenContent.count-1) && !isAppAlreadyLaunchedOnce()  {
+            contentViewController.isHidden = false
+        }
         
         return contentViewController
+    }
+    
+    func isAppAlreadyLaunchedOnce()->Bool{
+        let defaults = UserDefaults()
+        
+        if let isAppAlreadyLaunchedOnce = defaults.string(forKey: "isAppAlreadyLaunchedOnce"){
+            print("App already launched")
+            return true
+        }else{
+            defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
+            print("App launched first time")
+            return false
+        }
     }
 }
 
