@@ -3,3 +3,5 @@
 **/*.DS_Store
 **/Pods/
 **/*.xcuserstate
+*.json
+**/GoogleService-Info.plist
