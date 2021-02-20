@@ -24,6 +24,7 @@ class ContentViewController: UIViewController {
         super.viewDidLoad()
 
         presentTextLabel.text = presentText
+        presentTextLabel.textColor = .white
         emojiLabel.text = emoji
         pageControl.numberOfPages = numberOfPages // Have to be set before currentPage
         pageControl.currentPage = currentPage

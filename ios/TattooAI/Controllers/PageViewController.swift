@@ -9,10 +9,10 @@ import UIKit
 
 class PageViewController: UIPageViewController {
 
-    let presentScreenContent = ["1",
-                                "2",
-                                "3",
-                                "4",
+    let presentScreenContent = ["This application is based on a neural network with the GAN algorithm (the same as used to generate images of not existing people). It consists of two parts: 'student' and 'mentor'",
+                                "The 'student' studies real tattoo photos and tries to draw his own from scratch. The 'mentor' checks whether the result of the 'student' is similar to a real tattoo",
+                                "Gradually, the neural network improves the result and the images become more realistic",
+                                "This process requires quite a lot of computing power, so the generation takes place on the server, and the finished images are loaded into the application",
                                 ""]
     let emojiArray = ["🤖",
     "🤓",
