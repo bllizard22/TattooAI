@@ -26,6 +26,7 @@ class GeneratorViewController: UIViewController {
     
     let storage = Storage.storage(url:"gs://firephotos-40d70.appspot.com")
     var storageItems: [FirebaseStorage.StorageReference] = []
+    var storageItemsFiltered: [FirebaseStorage.StorageReference] = []
     var imageURL = URL(string: " ")
 //    var imageURL = URL(string: "https://firebasestorage.googleapis.com/v0/b/firephotos-40d70.appspot.com/o/70.jpg?alt=media&token=a4f4c0fb-5ebd-4a9c-964e-c0d63c6d9bdc")
 //    var imageSegueURL: URL?
@@ -256,7 +257,14 @@ class GeneratorViewController: UIViewController {
     }
     
     func generateRandomImage() {
-        guard let randomItem = storageItems.randomElement() else {return}
+        var randomItem = storage.reference().child("70.jpg")
+        if colorLabel.text == "Any" {
+            guard let _randomItem = storageItems.randomElement() else { return }
+            randomItem = _randomItem
+        } else {
+            guard let _randomItem = storageItemsFiltered.randomElement() else { return }
+            randomItem = _randomItem
+        }
 //        print(randomItem)
         
         randomItem.downloadURL { [weak self] (url, error) in
@@ -287,6 +295,26 @@ class GeneratorViewController: UIViewController {
                     print("fail")
                 }
             }
+        }
+    }
+    
+    func getFilteredItems() {
+        // List all images in Storage
+        let colorParameter = colorLabel.text?.lowercased() ?? "images"
+        if colorParameter == "any" { return }
+        storageItemsFiltered.removeAll()
+        let storageRef = storage.reference().child(colorParameter)
+        storageRef.listAll { [weak self] (result, error) in
+            if let error = error {
+                print("list Error\n", error)
+          }
+//          for prefix in result.prefixes {
+//            print(prefix)
+//          }
+          for item in result.items {
+//            print(item)
+            self?.storageItemsFiltered.append(item)
+          }
         }
     }
 

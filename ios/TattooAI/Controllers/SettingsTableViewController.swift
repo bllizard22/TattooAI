@@ -40,8 +40,9 @@ class SettingsTableViewController: UITableViewController {
                 print("\(vc)")
                 let generatorVC = vc as! GeneratorViewController
                 generatorVC.colorLabel.text = colorArray[selectedCells[0]]
-                generatorVC.placeLabel.text = placeArray[selectedCells[0]]
-                generatorVC.styleLabel.text = styleArray[selectedCells[0]]
+                generatorVC.placeLabel.text = placeArray[selectedCells[1]]
+                generatorVC.styleLabel.text = styleArray[selectedCells[2]]
+                generatorVC.getFilteredItems()
             }
 //            let generatorVC = rootVC.viewControllers![0]
     //        generatorVC.colorLabel.text = "new"
@@ -70,6 +71,12 @@ class SettingsTableViewController: UITableViewController {
             cell.accessoryType = .checkmark
         } else {
             cell.accessoryType = .none
+        }
+//        if cell.textLabel?.text == "Red" {
+        if indexPath.section > 0 {
+            cell.isUserInteractionEnabled = false
+            cell.textLabel?.isEnabled = false
+            cell.textLabel?.text = "Soon:   \(cell.textLabel?.text ?? "New feature")"
         }
 
         return cell
