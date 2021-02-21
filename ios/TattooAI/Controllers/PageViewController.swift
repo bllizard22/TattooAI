@@ -14,12 +14,13 @@ class PageViewController: UIPageViewController {
                                 "Gradually, the neural network improves the result and the images become more realistic",
                                 "This process requires quite a lot of computing power, so the generation takes place on the server, and the finished images are loaded into the application",
                                 ""]
-    let emojiArray = ["🤖",
-    "🤓",
-    "🙌",
-    "🧑‍💻",
-    ""]
-        
+    
+    let pictoNameArray = ["Asset1",
+                          "Asset2",
+                          "Asset3",
+                          "Asset4",
+                          ""]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
  
@@ -40,7 +41,7 @@ class PageViewController: UIPageViewController {
         guard let contentViewController = storyboard?.instantiateViewController(identifier: "ContentViewController") as? ContentViewController else { return nil }
         
         contentViewController.presentText = presentScreenContent[index]
-        contentViewController.emoji = emojiArray[index]
+        contentViewController.assetImage = UIImage(named: pictoNameArray[index])
         contentViewController.currentPage = index
         contentViewController.numberOfPages = presentScreenContent.count
         contentViewController.isHidden = true

@@ -10,12 +10,12 @@ import UIKit
 class ContentViewController: UIViewController {
 
     @IBOutlet weak var presentTextLabel: UILabel!
-    @IBOutlet weak var emojiLabel: UILabel!
+    @IBOutlet weak var pictoImage: UIImageView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var exitButton: UIButton!
     
     var presentText = ""
-    var emoji = ""
+    var assetImage = UIImage(named: "Asset1")
     var currentPage = 0
     var numberOfPages = 0
     var isHidden = true
@@ -25,7 +25,7 @@ class ContentViewController: UIViewController {
 
         presentTextLabel.text = presentText
         presentTextLabel.textColor = .white
-        emojiLabel.text = emoji
+        pictoImage.image = assetImage
         pageControl.numberOfPages = numberOfPages // Have to be set before currentPage
         pageControl.currentPage = currentPage
         exitButton.isHidden = isHidden
