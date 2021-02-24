@@ -68,9 +68,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="70" translatesAutoresizingMaskIntoConstraints="NO" id="nGf-pz-UMR">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="i01_70-3" translatesAutoresizingMaskIntoConstraints="NO" id="nGf-pz-UMR">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <rect key="contentStretch" x="0.10000000000000001" y="0.0" width="1" height="1"/>
+                                <rect key="contentStretch" x="0.10000000000000001" y="0.0" width="0.90000000000000002" height="1"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gSF-cE-rgT">
                                 <rect key="frame" x="87" y="153.5" width="240" height="70"/>
@@ -123,6 +123,7 @@
     </scenes>
     <resources>
         <image name="70" width="768" height="768"/>
+        <image name="i01_70-3" width="384" height="384"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

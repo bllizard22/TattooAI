@@ -25,6 +25,16 @@ class ContentViewController: UIViewController {
 
         presentTextLabel.text = presentText
         presentTextLabel.textColor = .white
+        let size = UIScreen.main.bounds.size
+        let screenHeight = size.height
+        let screenWidth = size.width
+        let safeArea = self.view.safeAreaLayoutGuide
+        let textTopConstraint = presentTextLabel.topAnchor.constraint(equalTo: safeArea.topAnchor,
+                                                                      constant: screenHeight/10*5)
+        let imageBottomConstraint = pictoImage.bottomAnchor.constraint(equalTo: safeArea.topAnchor,
+                                                                       constant: screenHeight/10*4)
+        NSLayoutConstraint.activate([textTopConstraint, imageBottomConstraint])
+        
         pictoImage.image = assetImage
         pageControl.numberOfPages = numberOfPages // Have to be set before currentPage
         pageControl.currentPage = currentPage
