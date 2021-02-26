@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		77F923792418852E946EF238 /* Pods_PhotoTapps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B425D64ABE92482C3C71DF54 /* Pods_PhotoTapps.framework */; };
 		851AF33725C12B94003ADA5F /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 851AF33525C12B94003ADA5F /* UserData.xcdatamodeld */; };
-		853156E425B58F4100738F95 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 853156E325B58F4100738F95 /* GoogleService-Info.plist */; };
 		8536D02D25DE265000541BA1 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8536D02C25DE265000541BA1 /* ContentViewController.swift */; };
 		8536D03025DE266600541BA1 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8536D02F25DE266600541BA1 /* PageViewController.swift */; };
 		853E400925DA459100AD84D3 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853E400825DA459100AD84D3 /* InfoViewController.swift */; };
@@ -26,13 +25,13 @@
 		857C591B25AAD00F000803F2 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C591A25AAD00F000803F2 /* PhotoCell.swift */; };
 		857C593525AAEB71000803F2 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C593425AAEB71000803F2 /* PhotoViewController.swift */; };
 		858F1E1025D0310D00C3EF3A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858F1E0F25D0310D00C3EF3A /* CustomButton.swift */; };
+		85BC16B725E9807300268AED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 85BC16B625E9807300268AED /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		197090B37798951690A7B807 /* Pods-PhotoTapps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoTapps.release.xcconfig"; path = "Target Support Files/Pods-PhotoTapps/Pods-PhotoTapps.release.xcconfig"; sourceTree = "<group>"; };
 		31C13794262628A9BD7A7B0F /* Pods-PhotoTapps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoTapps.debug.xcconfig"; path = "Target Support Files/Pods-PhotoTapps/Pods-PhotoTapps.debug.xcconfig"; sourceTree = "<group>"; };
 		851AF33625C12B94003ADA5F /* UserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserData.xcdatamodel; sourceTree = "<group>"; };
-		853156E325B58F4100738F95 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8536D02C25DE265000541BA1 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		8536D02F25DE266600541BA1 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		853E400825DA459100AD84D3 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +50,7 @@
 		857C591A25AAD00F000803F2 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		857C593425AAEB71000803F2 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		858F1E0F25D0310D00C3EF3A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		85BC16B625E9807300268AED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B425D64ABE92482C3C71DF54 /* Pods_PhotoTapps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoTapps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -78,12 +78,12 @@
 		855A7E3325D7C08B00400DBF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				85BC16B625E9807300268AED /* GoogleService-Info.plist */,
 				857C590825AACCF7000803F2 /* Assets.xcassets */,
 				857C58FF25AACCF6000803F2 /* AppDelegate.swift */,
 				857C590125AACCF6000803F2 /* SceneDelegate.swift */,
 				857C590525AACCF6000803F2 /* Main.storyboard */,
 				857C590A25AACCF7000803F2 /* LaunchScreen.storyboard */,
-				853156E325B58F4100738F95 /* GoogleService-Info.plist */,
 				851AF33525C12B94003ADA5F /* UserData.xcdatamodeld */,
 			);
 			path = "Supporting Files";
@@ -227,8 +227,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				857C590C25AACCF7000803F2 /* LaunchScreen.storyboard in Resources */,
+				85BC16B725E9807300268AED /* GoogleService-Info.plist in Resources */,
 				857C590925AACCF7000803F2 /* Assets.xcassets in Resources */,
-				853156E425B58F4100738F95 /* GoogleService-Info.plist in Resources */,
 				857C590725AACCF6000803F2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,6 +444,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TattooAI/TattooAI.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RTRWQZT32D;
 				INFOPLIST_FILE = TattooAI/Info.plist;
@@ -455,6 +456,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.TattooAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -468,6 +470,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TattooAI/TattooAI.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RTRWQZT32D;
 				INFOPLIST_FILE = TattooAI/Info.plist;
@@ -479,6 +482,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.TattooAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
