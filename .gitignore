@@ -5,3 +5,5 @@
 **/*.xcuserstate
 *.json
 **/GoogleService-Info.plist
+ios/Gemfile
+iOS/Gemfile.lock
