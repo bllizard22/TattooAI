@@ -10,9 +10,14 @@ import UIKit
 class InfoViewController: UIViewController {
 
     @IBOutlet weak var hiwButton: UIButton!
+    @IBOutlet weak var feedbackEmail: UILabel!
     @IBOutlet weak var melInstagram: UILabel!
+    @IBOutlet weak var nnTelegram: UILabel!
+    @IBOutlet weak var iosTelegram: UILabel!
+    @IBOutlet var tapOutlet: UITapGestureRecognizer!
     
-    let contacts = ["@evgenymel": "https://www.instagram.com/evgenymel/",
+    let contacts = ["email": "mailto:01tattooai@gmail.com",
+                    "@evgenymel": "https://www.instagram.com/evgenymel/",
                     "@name": "name@mail.com",
                     "@bllizard22": "https://t.me/bllizard22"]
     
@@ -25,29 +30,57 @@ class InfoViewController: UIViewController {
         let tapMelInst = UITapGestureRecognizer(target: self, action: #selector(InfoViewController.melIGDidPressed(_:)))
         melInstagram.isUserInteractionEnabled = true
         melInstagram.addGestureRecognizer(tapMelInst)
-        let attributedString = NSMutableAttributedString(string: "@evgenymel")
-////        let attributedString = NSMutableAttributedString(string: "mel", attributes:[NSAttributedString.Key.link: URL(string: "http://www.google.com/")!])
-        attributedString.addAttribute(.underlineStyle,
-                                      value: NSUnderlineStyle.single.rawValue,
-                                      range: NSRange(location: 0, length:   attributedString.length))
-        melInstagram.attributedText = attributedString
+//        let attributedString = NSMutableAttributedString(string: "@evgenymel")
+//        attributedString.addAttribute(.underlineStyle,
+//                                      value: NSUnderlineStyle.single.rawValue,
+//                                      range: NSRange(location: 0, length:   attributedString.length))
+//        melInstagram.attributedText = attributedString
+        
+        let tapIosTelegram = UITapGestureRecognizer(target: self, action: #selector(InfoViewController.iosDidPressed(_:)))
+        iosTelegram.isUserInteractionEnabled = true
+        iosTelegram.addGestureRecognizer(tapIosTelegram)
+        
+        let tapNnTelegram = UITapGestureRecognizer(target: self, action: #selector(InfoViewController.nnDidPressed(_:)))
+        nnTelegram.isUserInteractionEnabled = true
+        nnTelegram.addGestureRecognizer(tapNnTelegram)
+        
+        let tapFeedback = UITapGestureRecognizer(target: self, action: #selector(InfoViewController.feedbackDidPressed(_:)))
+        feedbackEmail.isUserInteractionEnabled = true
+        feedbackEmail.addGestureRecognizer(tapFeedback)
+        
     }
         
     @IBAction func cancelDidPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func melIGDidPressed(_ sender: UITapGestureRecognizer) {
-        print("tap working")
-//        UIApplication.shared.open(URL(string: "https://www.instagram.com/evgenymel/")!,
-//                                  options: [:],
-//                                  completionHandler: nil)
-        print(sender.view?.tag)
+    @objc func feedbackDidPressed(_ sender: UITapGestureRecognizer) {
+        print("email working")
+        UIApplication.shared.open(URL(string: contacts["email"]!)!,
+                                  options: [:],
+                                  completionHandler: nil)
+    }
+    
+    @objc func melIGDidPressed(_ sender: UITapGestureRecognizer) {
+        print("mel working")
         UIApplication.shared.open(URL(string: contacts["@evgenymel"]!)!,
                                   options: [:],
                                   completionHandler: nil)
     }
     
+    @objc func nnDidPressed(_ sender: UITapGestureRecognizer) {
+        print("nn working")
+        UIApplication.shared.open(URL(string: contacts["@name"]!)!,
+                                  options: [:],
+                                  completionHandler: nil)
+    }
+    
+    @objc func iosDidPressed(_ sender: UITapGestureRecognizer) {
+        print("ios working")
+        UIApplication.shared.open(URL(string: contacts["@bllizard22"]!)!,
+                                  options: [:],
+                                  completionHandler: nil)
+    }
     /*
     // MARK: - Navigation
 
