@@ -16,6 +16,7 @@ class InfoViewController: UIViewController {
     @IBOutlet weak var iosTelegram: UILabel!
     @IBOutlet var tapOutlet: UITapGestureRecognizer!
     
+    @IBOutlet weak var navigationBar: UINavigationItem!
     @IBOutlet weak var textStackView: UIStackView!
     
     let contacts = ["email": "mailto:01tattooai@gmail.com",
@@ -52,13 +53,14 @@ class InfoViewController: UIViewController {
         
         let windowHeight = UIScreen.main.bounds.size.height
         let windowWidth = UIScreen.main.bounds.size.width
+        let paddingHeight = (windowHeight - (textStackView.bounds.size.height + hiwButton.bounds.size.height + (self.navigationController?.navigationBar.frame.height ?? 0.0)))/3
         let safeArea = self.view.safeAreaLayoutGuide
 //        let textStackTopConstraint = textStackView.topAnchor.constraint(equalTo: safeArea.topAnchor,
 //                                                                         constant: windowHeight/5)
         let textStackTopConstraint = textStackView.topAnchor.constraint(equalTo: safeArea.topAnchor,
-                                                                        constant: windowHeight/10)
+                                                                        constant: paddingHeight)
         let hiwButtonTopConstraint = hiwButton.topAnchor.constraint(equalTo: textStackView.bottomAnchor,
-                                                                    constant: windowHeight/5)
+                                                                    constant: paddingHeight)
         NSLayoutConstraint.activate([textStackTopConstraint, hiwButtonTopConstraint])
         
         
