@@ -23,11 +23,9 @@
 		857C590725AACCF6000803F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 857C590525AACCF6000803F2 /* Main.storyboard */; };
 		857C590925AACCF7000803F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 857C590825AACCF7000803F2 /* Assets.xcassets */; };
 		857C590C25AACCF7000803F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 857C590A25AACCF7000803F2 /* LaunchScreen.storyboard */; };
-		857C591725AACDA7000803F2 /* PhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C591625AACDA7000803F2 /* PhotosCollectionViewController.swift */; };
 		857C591B25AAD00F000803F2 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C591A25AAD00F000803F2 /* PhotoCell.swift */; };
 		857C593525AAEB71000803F2 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C593425AAEB71000803F2 /* PhotoViewController.swift */; };
 		858F1E1025D0310D00C3EF3A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858F1E0F25D0310D00C3EF3A /* CustomButton.swift */; };
-		85A91F5D25B826DD00000BF9 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A91F5C25B826DD00000BF9 /* TestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,11 +48,9 @@
 		857C590825AACCF7000803F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		857C590B25AACCF7000803F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		857C590D25AACCF7000803F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		857C591625AACDA7000803F2 /* PhotosCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewController.swift; sourceTree = "<group>"; };
 		857C591A25AAD00F000803F2 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		857C593425AAEB71000803F2 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		858F1E0F25D0310D00C3EF3A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		85A91F5C25B826DD00000BF9 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		B425D64ABE92482C3C71DF54 /* Pods_PhotoTapps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoTapps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -98,8 +94,6 @@
 			children = (
 				85794F2725D250D700AA1078 /* LabelButton.swift */,
 				858F1E0F25D0310D00C3EF3A /* CustomButton.swift */,
-				85A91F5C25B826DD00000BF9 /* TestViewController.swift */,
-				857C591625AACDA7000803F2 /* PhotosCollectionViewController.swift */,
 			);
 			path = "Test Files";
 			sourceTree = "<group>";
@@ -292,10 +286,8 @@
 				85794F2C25D2547B00AA1078 /* SettingsTableViewController.swift in Sources */,
 				8579963B25AC7D8C00C9EA93 /* LikedCollectionViewController.swift in Sources */,
 				857C591B25AAD00F000803F2 /* PhotoCell.swift in Sources */,
-				85A91F5D25B826DD00000BF9 /* TestViewController.swift in Sources */,
 				85794F2825D250D700AA1078 /* LabelButton.swift in Sources */,
 				858F1E1025D0310D00C3EF3A /* CustomButton.swift in Sources */,
-				857C591725AACDA7000803F2 /* PhotosCollectionViewController.swift in Sources */,
 				857C590025AACCF6000803F2 /* AppDelegate.swift in Sources */,
 				857C590225AACCF6000803F2 /* SceneDelegate.swift in Sources */,
 				8536D02D25DE265000541BA1 /* ContentViewController.swift in Sources */,
@@ -451,10 +443,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TattooAI/TattooAI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RTRWQZT32D;
 				INFOPLIST_FILE = TattooAI/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -462,6 +455,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.TattooAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -473,10 +467,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TattooAI/TattooAI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RTRWQZT32D;
 				INFOPLIST_FILE = TattooAI/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -484,6 +479,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.TattooAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

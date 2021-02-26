@@ -63,12 +63,14 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="">
-                                    <imageReference key="image" image="square.grid.3x2.fill" catalog="system" symbolScale="large"/>
+                                    <imageReference key="image" image="square.grid.3x2.fill" catalog="system" symbolScale="medium" renderingMode="template"/>
                                 </segment>
                                 <segment title="">
-                                    <imageReference key="image" image="rectangle.split.1x2.fill" catalog="system" symbolScale="large"/>
+                                    <imageReference key="image" image="rectangle.split.1x2.fill" catalog="system" symbolScale="medium" renderingMode="template"/>
                                 </segment>
                             </segments>
+                            <color key="tintColor" systemColor="linkColor"/>
+                            <color key="selectedSegmentTintColor" name="AccentColor"/>
                             <connections>
                                 <action selector="collectionControlAction:" destination="67D-Dm-Gpo" eventType="valueChanged" id="0MR-2M-8mN"/>
                             </connections>
@@ -134,12 +136,13 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="">
-                                    <imageReference key="image" image="square.grid.3x2.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                                    <imageReference key="image" image="square.grid.3x2.fill" catalog="system" symbolScale="medium" renderingMode="template"/>
                                 </segment>
                                 <segment title="">
-                                    <imageReference key="image" image="rectangle.split.1x2.fill" catalog="system" symbolScale="large"/>
+                                    <imageReference key="image" image="rectangle.split.1x2.fill" catalog="system" symbolScale="medium" renderingMode="template"/>
                                 </segment>
                             </segments>
+                            <color key="selectedSegmentTintColor" name="AccentColor"/>
                             <connections>
                                 <action selector="collectionControlAction:" destination="4Cm-Ki-1M3" eventType="valueChanged" id="8m1-Tn-FaU"/>
                                 <action selector="collectionControlAction:" destination="67D-Dm-Gpo" eventType="valueChanged" id="MI1-YT-87T"/>
@@ -148,49 +151,19 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionControl" destination="h32-7h-UzB" id="VCn-NI-ypk"/>
+                        <outlet property="gridSegmentedControl" destination="h32-7h-UzB" id="C9O-qd-E2A"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l5H-I6-sY5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1852" y="849.62518740629696"/>
         </scene>
-        <!--Test View Controller-->
-        <scene sceneID="An6-Xg-wfI">
-            <objects>
-                <viewController id="5Hu-HR-ucg" customClass="TestViewController" customModule="TattooAI" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="DYQ-dX-2fc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="list.png" translatesAutoresizingMaskIntoConstraints="NO" id="2r4-Ue-1nw">
-                                <rect key="frame" x="-13" y="0.0" width="427" height="896"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="7gm-BH-nHI"/>
-                                    <constraint firstAttribute="width" constant="400" id="I9O-Vp-oS6"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="lno-kd-3eR"/>
-                        <color key="backgroundColor" name="AccentColor"/>
-                        <constraints>
-                            <constraint firstItem="2r4-Ue-1nw" firstAttribute="centerY" secondItem="lno-kd-3eR" secondAttribute="centerY" id="jPh-jy-9eu"/>
-                            <constraint firstItem="2r4-Ue-1nw" firstAttribute="centerX" secondItem="lno-kd-3eR" secondAttribute="centerX" id="jkL-wZ-Y7z"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="testImageView" destination="2r4-Ue-1nw" id="Ozu-EH-tsD"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WwN-Dy-Ltg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1885.5072463768117" y="-72.991071428571431"/>
-        </scene>
         <!--Photo View Controller-->
         <scene sceneID="eNH-Nt-GMj">
             <objects>
                 <viewController id="lZi-uA-R8M" customClass="PhotoViewController" customModule="TattooAI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kt3-ty-udj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S3c-cH-o3s">
@@ -583,7 +556,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htn-s1-fUP">
-                                <rect key="frame" x="67.5" y="579.5" width="240" height="60"/>
+                                <rect key="frame" x="67.5" y="519.5" width="240" height="60"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="CP9-Zp-a48"/>
@@ -601,10 +574,10 @@
                         <viewLayoutGuide key="safeArea" id="tFc-XZ-Uui"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Etf-EK-d26" firstAttribute="top" secondItem="tFc-XZ-Uui" secondAttribute="top" constant="60" id="37t-08-KiF"/>
+                            <constraint firstItem="Etf-EK-d26" firstAttribute="top" secondItem="tFc-XZ-Uui" secondAttribute="top" constant="60" placeholder="YES" id="37t-08-KiF"/>
                             <constraint firstItem="htn-s1-fUP" firstAttribute="centerX" secondItem="tFc-XZ-Uui" secondAttribute="centerX" id="5o6-gJ-9yK"/>
                             <constraint firstItem="Etf-EK-d26" firstAttribute="leading" secondItem="tFc-XZ-Uui" secondAttribute="leading" constant="20" id="Val-W3-Z1p"/>
-                            <constraint firstItem="htn-s1-fUP" firstAttribute="top" secondItem="Etf-EK-d26" secondAttribute="bottom" constant="120" id="WgZ-bJ-ugo"/>
+                            <constraint firstItem="htn-s1-fUP" firstAttribute="top" secondItem="Etf-EK-d26" secondAttribute="bottom" constant="60" placeholder="YES" id="WgZ-bJ-ugo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="About App" id="txf-AZ-z1z">
@@ -622,6 +595,7 @@
                         <outlet property="melInstagram" destination="reO-Si-3Gt" id="KjY-XB-Hfw"/>
                         <outlet property="nnTelegram" destination="Jsp-F3-oLK" id="MhF-DN-DvA"/>
                         <outlet property="tapOutlet" destination="RSC-i2-o8L" id="sbF-G6-L1C"/>
+                        <outlet property="textStackView" destination="Etf-EK-d26" id="p86-lZ-wB4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VyC-fq-sVm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -842,14 +816,13 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Vw0-Ot-cr5"/>
+        <segue reference="4cq-9R-SqS"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="dice" width="128" height="128"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="like_clear" width="128" height="128"/>
         <image name="like_fill" width="128" height="128"/>
-        <image name="list.png" width="384" height="384"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="rectangle.split.1x2.fill" catalog="system" width="128" height="93"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
@@ -863,6 +836,9 @@
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

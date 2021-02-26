@@ -22,6 +22,7 @@ class LikedCollectionViewController: UICollectionViewController {
     let testImageURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1920px-Apple_logo_black.svg.png"
     
     @IBOutlet weak var collectionControl: UISegmentedControl!
+    @IBOutlet weak var gridSegmentedControl: UISegmentedControl!
     
     override func viewWillAppear(_ animated: Bool) {
 //        likedPhotos = obtainLikedImages()
@@ -61,6 +62,10 @@ class LikedCollectionViewController: UICollectionViewController {
         
         // Count size of item based on screen size
         calculateCollection()
+        
+        gridSegmentedControl.selectedSegmentTintColor = UIColor(named: "AccentColor")
+//        let segment0Image = UIImage(systemName: "square.grid.3x2.fill")?.withTintColor(.blue, renderingMode: .alwaysTemplate)
+//        gridSegmentedControl.setImage(segment0Image, forSegmentAt: 0)
         
 //        // Count size of item based on screen size
 //        let paddingTotalWidth = paddingWidth * (itemsPerRow + 1)

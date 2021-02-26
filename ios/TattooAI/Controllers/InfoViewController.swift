@@ -16,6 +16,8 @@ class InfoViewController: UIViewController {
     @IBOutlet weak var iosTelegram: UILabel!
     @IBOutlet var tapOutlet: UITapGestureRecognizer!
     
+    @IBOutlet weak var textStackView: UIStackView!
+    
     let contacts = ["email": "mailto:01tattooai@gmail.com",
                     "@evgenymel": "https://www.instagram.com/evgenymel/",
                     "@name": "name@mail.com",
@@ -26,6 +28,10 @@ class InfoViewController: UIViewController {
 
         overrideUserInterfaceStyle = .dark
         hiwButton.layer.cornerRadius = 10
+        
+        let tapFeedback = UITapGestureRecognizer(target: self, action: #selector(InfoViewController.feedbackDidPressed(_:)))
+        feedbackEmail.isUserInteractionEnabled = true
+        feedbackEmail.addGestureRecognizer(tapFeedback)
         
         let tapMelInst = UITapGestureRecognizer(target: self, action: #selector(InfoViewController.melIGDidPressed(_:)))
         melInstagram.isUserInteractionEnabled = true
@@ -44,9 +50,17 @@ class InfoViewController: UIViewController {
         nnTelegram.isUserInteractionEnabled = true
         nnTelegram.addGestureRecognizer(tapNnTelegram)
         
-        let tapFeedback = UITapGestureRecognizer(target: self, action: #selector(InfoViewController.feedbackDidPressed(_:)))
-        feedbackEmail.isUserInteractionEnabled = true
-        feedbackEmail.addGestureRecognizer(tapFeedback)
+        let windowHeight = UIScreen.main.bounds.size.height
+        let windowWidth = UIScreen.main.bounds.size.width
+        let safeArea = self.view.safeAreaLayoutGuide
+//        let textStackTopConstraint = textStackView.topAnchor.constraint(equalTo: safeArea.topAnchor,
+//                                                                         constant: windowHeight/5)
+        let textStackTopConstraint = textStackView.topAnchor.constraint(equalTo: safeArea.topAnchor,
+                                                                        constant: windowHeight/10)
+        let hiwButtonTopConstraint = hiwButton.topAnchor.constraint(equalTo: textStackView.bottomAnchor,
+                                                                    constant: windowHeight/5)
+        NSLayoutConstraint.activate([textStackTopConstraint, hiwButtonTopConstraint])
+        
         
     }
         
