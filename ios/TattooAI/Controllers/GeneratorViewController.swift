@@ -21,7 +21,9 @@ class GeneratorViewController: UIViewController {
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var generateButton: UIButton!
     
-//    var settings = ["colorArray": 0, "placeArray": 0, "styleArray": 0]
+    @IBOutlet weak var textStackView: UIStackView!
+    @IBOutlet weak var buttonsStackView: UIStackView!
+    //    var settings = ["colorArray": 0, "placeArray": 0, "styleArray": 0]
     var imageLikes: [ImageLike] = []
     
     let storage = Storage.storage(url:"gs://firephotos-40d70.appspot.com")
@@ -34,51 +36,26 @@ class GeneratorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        colorLabel.text = commonArray[0][0]
-        placeLabel.text = commonArray[1][0]
-        styleLabel.text = commonArray[2][0]
-        
         loadStorageData()
         loadCoreData()
         
-//        let tap = UITapGestureRecognizer(target: self,
-//                                         action: #selector(GeneratorViewController.labelTap))
-//        colorLabel.isUserInteractionEnabled = true
-//        colorLabel.addGestureRecognizer(tap)
+        colorLabel.text = commonArray[0][0]
+        placeLabel.text = commonArray[1][0]
+        styleLabel.text = commonArray[2][0]
 
-        imageView.layer.cornerRadius = 10
-//        imageView.image = UIImage(named: "70")
+        let screenWidth = UIScreen.main.bounds.size.width
+        let screenHeight = UIScreen.main.bounds.size.height
+        let verticalPadding = (screenHeight - (textStackView.bounds.size.height + imageView.bounds.height + buttonsStackView.bounds.height))/4
+        let safeArea = self.view.safeAreaLayoutGuide
+        let textStackTopConstraint = textStackView.topAnchor.constraint(equalTo: safeArea.topAnchor,
+                                                                        constant: verticalPadding)
+        let imageTopConstraint = imageView.topAnchor.constraint(equalTo: textStackView.bottomAnchor,
+                                                                constant: verticalPadding)
+        let buttonsTopConstraint = buttonsStackView.topAnchor.constraint(equalTo: imageView.bottomAnchor,
+                                                                         constant: verticalPadding)
+//        NSLayoutConstraint.activate([textStackTopConstraint, imageTopConstraint, buttonsTopConstraint])
         
-//        let storageRef = storage.reference()
-//        storageRef.downloadURL { [weak self] (url, error) in
-//            if let error = error {
-//                print("get Error\n",error)
-//            }
-//
-//            guard let url = url else { return }
-////                print(url)
-////                print(url.absoluteURL)
-////                let newURL = URL(string: "")
-//            self?.imageURL = url
-//            cell.imageURL = url
-//            let resource = ImageResource(downloadURL: (self?.imageURL)!)
-//            cell.cellImageView.kf.setImage(with: resource) { (result) in
-//                switch result {
-//                case .success(_):
-//                    //                print("success")
-//                    break
-//                case .failure(_):
-//                    print("fail")
-//                }
-//            }
-//        }
-//        likeButton.setImage(UIImage(named: "like")?.withRenderingMode(.alwaysTemplate),
-//                            for: .normal)
-//        likeButton.tintColor = .white
-//        likeButton.tintColor = UIColor(red: MainColor.red,
-//                                       green: MainColor.green,
-//                                       blue: MainColor.blue,
-//                                       alpha: 1.0)
+        imageView.layer.cornerRadius = 10
         settingsButton.layer.cornerRadius = 10
         settingsButton.clipsToBounds = true
         settingsButton.contentMode = .scaleAspectFit
